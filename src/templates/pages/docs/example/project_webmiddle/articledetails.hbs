@@ -1,0 +1,74 @@
+{{#markdown}}
+### ArticleDetails
+
+Must return an article object.
+
+It is a simple wrapper, since it just needs to call our existing
+ArticleDetails service and do some minimal output conversions.
+
+Let’s only see the one from foxnews.com, as the other one from
+nytimes.com is almost identical.
+
+```jsx
+function fixArticle(article) {
+  return {
+    ...article,
+    date: getFormattedDate(new Date(article.date)),
+  };
+}
+
+function ArticleDetails({ webmiddle, options, ...rest }) {
+  return (
+    <Pipe>
+      <Parent
+        {...rest}
+        name="page"
+      />
+
+      {({ page }) => ({
+        name: 'articleDetails',
+        contentType: 'application/json',
+        content: fixArticle(page.content.root.article),
+      })}
+    </Pipe>
+  );
+}
+```
+
+Let’s remember that the output from our **Parent** is something like
+
+```javascript
+{
+  "name": "page",
+  "contentType": "application/json",
+  "content": {
+    "root": {
+      "article": {
+        //[the actual article object]
+      }
+    }
+  }
+}
+```
+
+Thus, we are just getting the actual article object and wrapping it into
+a new resource.
+
+Moreover, note the use of the **fixArticle** function. The problem is
+that our Parent service returns the date in a different format from what
+the project needs, thus we need to convert it accordingly.
+
+The **getFormattedDate** is a project helper that does just that: given
+a JavaScript Date object, returns the date as a string with the expected
+format:
+
+```javascript
+// e.g. "Jan 4, 2016"
+export function getFormattedDate(date) {
+  const month = date.toLocaleString('en-us', { month: 'short' });
+  const day = date.getDay() + 1;
+  const year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
+}
+```
+{{/markdown}}

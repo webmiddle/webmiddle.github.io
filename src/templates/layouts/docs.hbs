@@ -1,0 +1,33 @@
+---
+layout: default.hbs
+---
+<div class="content-header">
+    <div class="container">
+        <h1>Documentation</h1>
+        <p>Learn how to use the framework effectively.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 sidebar">
+            <!-- Sidebar -->
+            {{renderDocsNav docs page}}
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Content -->
+            <div class="page-header">
+                {{> body }}
+            </div>
+            <div class="page-nav">
+                {{#withPreviousDocsNav docs page}}
+                <span class="previous">Previous: <a href="{{href}}">{{title}}</a></span>
+                {{/withPreviousDocsNav}}
+                {{#withNextDocsNav docs page}}
+                <span class="next">Next: <a href="{{href}}">{{title}}</a></span>
+                {{/withNextDocsNav}}
+            </div>
+        </div>
+    </div>
+</div>

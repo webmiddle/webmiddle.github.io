@@ -1,0 +1,41 @@
+{{#markdown}}
+Sample execution
+----------------
+
+Given the following **search.json**:
+
+```javascript
+{
+  "searchProps": {
+    "sites": ["foxnews.com", "nytimes.com"],
+    "query": "javascript applications",
+    "startYear": 2007
+  },
+  "webmiddleSettings": {
+    "verbose": false
+  },
+  "evaluateOptions": {
+
+  }
+}
+```
+
+And a **search.private.json** containing the NyTimes API Key (removed
+from the images for security reasons):
+
+```javascript
+{
+  "searchProps": {
+    "nytimesApiKey": "YOUR KEY HERE"
+  }
+}
+```
+
+Execute the news search application:
+
+![Console output]({{assets}}/img/documentation/sample_execution_console.png "Console output")
+
+Once the search completed, the **newSearch.json** is created:
+
+![JSON output]({{assets}}/img/documentation/sample_execution_output.png "JSON output")
+{{/markdown}}

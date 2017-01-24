@@ -1,0 +1,55 @@
+{{#markdown}}
+### The New York Times
+
+We are going to only see the SearchArticles service, since
+ArticleDetails is almost identical to foxnews, even the article text
+extraction is almost the same.
+
+<br />
+#### SearchArticles
+
+```jsx
+function SearchArticles({ query, apiKey, startYear, endYear, pageNumber }) {
+  return (
+    <Pipe>
+      <HttpRequest
+        name="rawJson"
+        contentType="application/json"
+        url={
+          `https://api.nytimes.com/svc/search/v2/articlesearch.json` +
+           `?q=${encodeURIComponent(query)}` +
+          `&response-format=json&api-key=${encodeURIComponent(apiKey)}` +
+          `${startYear? `&begin_date=${encodeURIComponent(formatYear(startYear))}` :''}` +
+          `${endYear? `&end_date=${encodeURIComponent(formatYear(endYear))}` :''}` +
+          `&page=${encodeURIComponent(pageNumber)}`
+        }
+      />
+
+      {({ rawJson }) =>
+        <JSONSelectToJson
+          name="searchArticles"
+          from={rawJson}
+          fullConversion
+        />
+      }
+    </Pipe>
+  );
+}
+```
+
+The site provides an API that can be conveniently used to search
+articles and get results in JSON format \[21\].
+
+The JSONSelectToJson is a service that can be used to convert JSON to
+JSON, however here we are only interested in normalizing the already
+fetched JSON into our commonly used structure (i.e. with the “root”
+object on top). For this reason, we use the “fullConversion” attribute.
+Note that this attribute is much more useful in case of other kind of
+conversions, for example when converting from XML to JSON and vice
+versa.
+
+Note: the API doesn’t provide a way of getting the full content of an
+article, thus we used plain HTML for extracting the article details. You
+can see how often mixing and matching of several data formats is needed
+even for a single site.
+{{/markdown}}

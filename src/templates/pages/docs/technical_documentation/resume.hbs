@@ -1,0 +1,41 @@
+{{#markdown}}
+### Resume
+
+A service that makes its children **resumable** by caching the result.
+
+The children are internally wrapped with a **Pipe** service and
+executed. The resulting resource is then saved to the **filesystem**.
+
+On subsequent executions, the service checks if the result is already
+stored in the filesystem, and if so it just returns such result.
+
+Since the result is stored in the filesystem, it will last even among
+different executions of the application. This makes possible to resume
+work in case the application terminated abruptly and in other similar
+scenarios.
+
+The save path is specified via the **savePath** attribute, which is
+relative to the **outputBasePath** webmiddle setting.
+
+<br />
+**Properties**:
+
+<table class="table table-bordered table-striped table-responsive">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>savePath</td>
+      <td>The filesystem path where the result should be saved.</td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td>The list of steps to make resumable. It is wrapped into a Pipe, so effectively only the last returned resource will be cached.</td>
+    </tr>
+  </tbody>
+</table>
+{{/markdown}}

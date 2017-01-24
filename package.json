@@ -1,0 +1,54 @@
+{
+  "name": "webmiddle-website",
+  "description": "WebMiddle website.",
+  "version": "0.1.0",
+  "homepage": "https://webmiddle.github.io",
+  "author": {
+    "name": "Manuel Dell'Elce",
+    "url": "http://github.com/Maluen/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:webmiddle/webmiddle.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webmiddle/webmiddle.github.io/issues"
+  },
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts": {
+    "test": "grunt assemble"
+  },
+  "devDependencies": {
+    "assemble": "~0.4.37",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "grunt": "~0.4.5",
+    "grunt-build-control": "~0.1.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "load-grunt-tasks": "~0.4.0",
+    "prismjs": "^1.6.0",
+    "time-grunt": "~0.3.1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/webmiddle/webmiddle.github.io/blob/master/LICENSE-MIT"
+    }
+  ],
+  "keywords": [
+    "assemble",
+    "templates",
+    "handlebars",
+    "site generator",
+    "site builder",
+    "grunt"
+  ]
+}

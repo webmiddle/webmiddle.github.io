@@ -1,0 +1,42 @@
+{{#markdown}}
+### ArrayMap
+
+Maps an array into an array of resources by executing a callback on each
+item.
+
+In terms of implementation it is similar to the **Parallel** service,
+meaning that the items are mapped concurrently.
+
+The service resolves with a JSON resource whose content is the obtained
+array.
+
+<br />
+**Properties:**
+
+<table class="table table-bordered table-striped table-responsive">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>The name of the returned resource.</td>
+    </tr>
+    <tr>
+      <td>limit (optional)</td>
+      <td>An integer for setting the maximum concurrency.</td>
+    </tr>
+    <tr>
+      <td>array</td>
+      <td>The array that needs to be mapped.</td>
+    </tr>
+    <tr>
+      <td>callback</td>
+      <td>The function to call for each item; it is called with the current array item and its index, and it is expected to return a resource.</td>
+    </tr>
+  </tbody>
+</table>
+{{/markdown}}

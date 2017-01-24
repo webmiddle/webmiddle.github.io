@@ -1,0 +1,49 @@
+{{#markdown}}
+### Parallel
+
+Its purpose is similar to **Pipe**, i.e. the execution of services, but
+they are executed **concurrently**.
+
+Note that if every child is fully synchronous, then its behavior is the
+same of Pipe.<br />
+In the other end, if the child returns a promise, then such promise will
+be added to a pool and the next child will be executed immediately.
+
+The service resolves with a JSON resource whose content is an object
+`<resource name, resource>`, where the resource names are extracted
+directly from the resources returned by the children.
+
+If any of the child fails, then the whole Parallel fails with the error
+returned by the failed child.
+
+This service also supports a **limit** property that can be used to
+limit the maximum number of concurrent tasks that should be running at
+any given time. If limit is 1, then the children will be executed in
+order, one after another, similarly to the Pipe service.
+
+<br />
+**Properties**:
+
+<table class="table table-bordered table-striped table-responsive">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>The name of the returned resource.</td>
+    </tr>
+    <tr>
+      <td>limit (optional)</td>
+      <td>An integer for setting the maximum concurrency.</td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td>The tasks to execute.</td>
+    </tr>
+  </tbody>
+</table>
+{{/markdown}}

@@ -1,0 +1,62 @@
+{{#markdown}}
+Introduction
+============
+
+**WebMiddle** is a framework that can be used for extracting, transforming
+and processing web data from several sources, by using a multi-layer
+approach, or “web middlewares”, where each middleware abstracts one or
+more sources of data, so to produce a structured output that can be
+consumed by the higher-level middleware.
+
+Each web middleware, here called **webmiddle**, is implemented with JSX,
+a highly modular, extensible and declarative approach; as we will see in
+the rest of this document.
+
+The idea is to provide an easy to use and structured way for solving
+this class of problems, without compromising on the expressiveness and
+quality of the solutions.
+
+The choice of using multiple web middlewares has been made for tackling
+the reuse problem: the idea is for the **open source** community to be
+able to create and share web middlewares for the most common sites and
+projects, so that they can be reused by other developers.
+
+The framework is written in **JavaScript** and executed with **NodeJS**
+, which allows to use the **JSX** technology, which roughly could be
+described as a way of embedding XML-like documents into JavaScript
+files, with the added benefit of being able to embed and reference
+JavaScript expressions into these XML-like documents.
+
+Every aspect of a webmiddle application can be written by means of JSX
+trees, from the http requests, to the conversion steps, to the business
+logic.
+
+A JSX tree is a tree whose nodes have attributes and a type, where the
+type can reference a function, here called **service**.
+
+This allow the user to define in a **tree-like fashion** the logic of
+the application, in a declarative and modular approach.
+
+The ability of embedding JavaScript into the JSX tree, the ability of
+using functions as the element types, and finally the ability for the
+user to define its own functions, make for many possibilities in the
+kind of applications that can be developed.
+
+Note that JSX is mainly a way of defining **React** components, but it
+is developed in such a way that it can be transpiled to any tree format
+at build time, thanks to libraries such as **Babel**.
+
+In the framework, the JSX is **transpiled** into its more general
+format, a “**virtual tree**”, or simply “**virtual**”, i.e. a node with
+a type, attributes and children. This virtual tree is then evaluated
+accordingly.
+
+Moreover, the framework provides a set of **core services** for the most
+common operations: http requests, data conversion, flow control and so
+on.
+
+The provided core services allow to perform all the actions required by
+the original SLR tool and beyond, in fact it provides out-of-the-box
+features for using **headless browsers**, **concurrency** and **error
+handling**, to name a few.
+{{/markdown}}

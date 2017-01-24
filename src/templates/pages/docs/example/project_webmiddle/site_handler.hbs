@@ -1,0 +1,31 @@
+{{#markdown}}
+### Site handler
+
+A site handler is defined as a webmiddle having a **name**, **services**
+and **settings**.
+
+The project expects three **services** from each site handler: Meta,
+SearchArticles and ArticleDetails.
+
+Here is how the foxnews.com site handler is defined:
+
+```javascript
+export default new WebMiddle({
+  name: 'foxnews.com',
+  settings: parentConfig,
+  services: {
+    Meta,
+    SearchArticles,
+    ArticleDetails,
+  },
+});
+```
+
+The **settings** is just the object we previously saw:
+
+```javascript
+export default {
+  resultsPerPage: 10,
+};
+```
+{{/markdown}}

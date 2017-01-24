@@ -1,0 +1,65 @@
+{{#markdown}}
+### SiteMain
+
+```jsx
+function SiteMain({ webmiddle, options, ...rest }) {
+  const { site } = rest;
+  const Meta = site.service('Meta');
+
+  return (
+    <Pipe>
+      <Meta
+        {...rest}
+        name="meta"
+      />
+
+      {({ meta }) =>
+        <ArrayMap
+          name="articlesByPage"
+          array={_.range(meta.content.numberOfPages)}
+          limit={1}
+          callback={i => (
+            <Resume savePath={`./${site.name}/articles_${i}`}>
+              <ProcessPage
+                {...rest}
+                name={i}
+                pageNumber={i}
+                filters={rest}
+              />
+            </Resume>
+          )}
+        />
+      }
+
+      {({ articlesByPage }) => ({
+        name: 'articles',
+        contentType: 'application/json',
+        content: [].concat(...articlesByPage.content.map(
+          r => r.content
+        )),
+      })}
+    </Pipe>
+  );
+}
+```
+
+It starts by calling the Meta service of the site handler, so to get the
+number of pages.
+
+Then, for each page, it uses the **ProcessPage** service to get the list
+of articles of the site for that page.
+
+Here, the `limit={1}` attribute passed to the **ArrayMap** core service
+is used to limit the number of concurrently processed pages. A higher
+concurrency will speed up the search, but will also increase the machine
+resources usage. Moreover, these concurrent tasks will add up with any
+other concurrent tasks in other sites.
+
+**Resume** is the core service used for resuming, to use it, we just
+need to wrap the service we want to make resumable as children, and
+specify the save path via the savePath attribute.
+
+The last step in our Pipe chain just extracts the content of the
+articlesByPage array of resources into a single resource obtained by
+concatenating such arrays.
+{{/markdown}}

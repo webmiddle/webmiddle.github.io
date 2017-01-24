@@ -1,0 +1,151 @@
+---
+title: Home
+order: 0
+heading: 'WebMiddle'
+lead: JSX framework for multi-layer web data integration.
+---
+<div class="jumbotron">
+    <h1>{{ heading }}</h1>
+    <p>{{ lead }}</p>
+    <p>
+      <a class="btn btn-primary btn-lg" href="/docs/getting_started.html">Getting started &raquo;</a>
+      <a class="btn btn-primary btn-lg" href="{{ site.github_project }}">GitHub repository &raquo;</a>
+    </p>
+</div>
+
+<div class="container home">
+    <div class="row">
+        <h3 class="text-center">{{ site.description }}</h3>
+        <br />
+        <div class="col-lg-9 text-justify">
+{{#markdown}}
+WebMiddle is a framework that can be used for extracting, transforming and processing web data from several sources, by using a multi-layer approach, where each middleware abstracts one or more sources of data, so to produce a structured output that can be consumed by the higher-level middleware.
+
+Each web middleware, or **webmiddle**, is implemented via JSX services,
+leading to a highly composable, extensible and declarative approach.
+{{/markdown}}
+        </div>
+        <div class="col-lg-3">
+            <ul class="tick-list">
+                <li>JSX services</li>
+                <li>Multiple layers</li>
+                <li>Concurrency</li>
+                <li>HTTP</li>
+                <li>PhantomJS</li>
+                <li>Cookie JAR</li>
+                <li>Caching</li>
+                <li>Error handling</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Create a new project:</h3>
+            {{#markdown}}
+```bash
+npm install -g yo
+npm install -g generator-webmiddle
+yo webmiddle
+```
+            {{/markdown}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Given a JSX service:</h3>
+            {{#markdown}}
+```jsx
+const FetchPageLinks = ({ url, query, waitFor }) =>
+  <Pipe>
+    <Browser
+      name="rawHtml"
+      contentType="text/html"
+      url={url}
+      waitFor={waitFor}
+    />
+
+    {({ rawHtml }) =>
+      <HtmlToJson name="result" from={rawHtml}>
+        <anchors
+          el="a"
+          condition={el =>
+            el.text().toUpperCase().indexOf(query.toUpperCase()) !== -1
+          }
+        >
+          {elMap(el => (
+            <anchor el={el}>
+              <url>{elAttr('href')}</url>
+              <text>{elText()}</text>
+            </anchor>
+          ))}
+        </anchors>
+      </HtmlToJson>
+    }
+  </Pipe>
+);
+
+FetchPageLinks.propTypes = {
+  url: PropTypes.string.isRequired,
+  query: PropTypes.string.isRequired,
+  waitFor: PropTypes.string,
+};
+```
+            {{/markdown}}
+        </div>
+
+        <div class="col-lg-6">
+            <h3>And a webmiddle to execute it:</h3>
+            {{#markdown}}
+```jsx
+const webmiddle = new WebMiddle();
+
+webmiddle.evaluate(
+  <FetchPageLinks
+    url="https://news.ycombinator.com/"
+    query="javascript"
+  />,
+{ expectResource: true })
+.then(outputResource => {
+  console.log(
+    JSON.stringify(outputResource.content, null, 2)
+  );
+});
+```
+            {{/markdown}}
+
+            <h3>You get as output:</h3>
+
+            {{#markdown}}
+```json
+{
+  "root": {
+    "anchors": [
+      {
+        "anchor": {
+          "url": "http://nearley.js.org/",
+          "text": "Nearley – parser toolkit for JavaScript"
+        }
+      },
+      {
+        "anchor": {
+          "url": "https://sekao.net/blog/industry.html",
+          "text": "ClojureScript is the most-used functional language that compiles to JavaScript"
+        }
+      }
+    ]
+  }
+}
+```
+            {{/markdown}}
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Going further</h3>
+        <p>
+          This is just the tip of the iceberg, you can create complex wrappers and applications by registering multiple services to a webmiddle instance, specify settings and evaluate options, composing webmiddles and much more!
+        </p>
+        <p>Read the <a href="/docs">documentation</a> for a detailed description.</p>
+      </div>
+    </div>
+</div>

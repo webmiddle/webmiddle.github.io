@@ -1,0 +1,22 @@
+{{#markdown}}
+### Filtering and merging
+
+-   **Filter<br />
+    **The filtering uses a conservative approach, i.e. it doesn’t
+    exclude articles if they have incomplete information, for example an
+    article with no publication year won’t be excluded even if there is
+    a startYear and/or endYear input property.
+
+-   **Merge**<br />
+    Note that we don’t override existing values if the new values are
+    null.<br />
+    In fact, it might happen for certain properties to appear in the
+    SearchArticles but to be undefined in the ArticleDetails, e.g. for
+    the article category; in such a case, we don’t want to override our
+    already valid information with an invalid information.
+
+-   **MergeArticles<br />
+    **As we said, is the final step in the whole search, it just
+    concatenates the lists of articles from the various sites into a
+    single list, by adding the **source** property to every article.
+{{/markdown}}
