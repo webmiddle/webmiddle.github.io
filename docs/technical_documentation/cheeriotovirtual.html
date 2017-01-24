@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JSX framework for multi-layer web data integration.">
+    <title>Documentation | WebMiddle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+
+    <!-- Prism CSS customized to match github style -->
+    <link rel="stylesheet" href="../../assets/css/prism-custom.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">WebMiddle</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <!-- you can exclude pages using {{#isnt}} helper: {{#isnt data.title 'Blog'}} -->
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li class="active">
+          <a href="/docs">Documentation</a>
+        </li>
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+    <div class="container theme-showcase content" role="main">
+
+      
+<div class="content-header">
+    <div class="container">
+        <h1>Documentation</h1>
+        <p>Learn how to use the framework effectively.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 sidebar">
+            <!-- Sidebar -->
+            <ul class="nav">      <li>        <a href="/docs/introduction.html">Introduction</a>              </li>          <li>        <a href="/docs/overview.html">Overview</a>        <ul class="nav">      <li>        <a href="/docs/jsx_services.html">JSX services</a>              </li>          <li>        <a href="/docs/multiple_layers.html">Multiple layers</a>              </li>    </ul>      </li>          <li>        <a href="/docs/getting_started.html">Getting started</a>              </li>          <li>        <a href="/docs/technical_documentation/index.html">Technical documentation</a>        <ul class="nav">      <li>        <a href="/docs/technical_documentation/webmiddle.html">webmiddle</a>        <ul class="nav">      <li>        <a href="/docs/technical_documentation/evaluate.html">evaluate</a>              </li>          <li>        <a href="/docs/technical_documentation/callvirtual.html">callVirtual</a>              </li>    </ul>      </li>          <li>        <a href="/docs/technical_documentation/cookiemanager.html">CookieManager</a>              </li>          <li>        <a href="/docs/technical_documentation/pipe.html">Pipe</a>              </li>          <li>        <a href="/docs/technical_documentation/parallel.html">Parallel</a>              </li>          <li>        <a href="/docs/technical_documentation/arraymap.html">ArrayMap</a>              </li>          <li>        <a href="/docs/technical_documentation/resume.html">Resume</a>              </li>          <li>        <a href="/docs/technical_documentation/httprequest.html">HttpRequest</a>              </li>          <li>        <a href="/docs/technical_documentation/browser.html">Browser</a>              </li>          <li>        <a class="active" href="/docs/technical_documentation/cheeriotovirtual.html">CheerioToVirtual</a>              </li>          <li>        <a href="/docs/technical_documentation/jsonselecttovirtual.html">JSONSelectToVirtual</a>              </li>          <li>        <a href="/docs/technical_documentation/virtualtojson.html">VirtualToJson</a>              </li>          <li>        <a href="/docs/technical_documentation/html-xml-json_to_json.html">HTML/XML/JSON to JSON</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/index.html">Example: News Search</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/index.html">Site WebMiddles</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/fox_news.html">Fox News</a>              </li>          <li>        <a href="/docs/example/site_webmiddles/the_new_york_times.html">The New York Times</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/project_webmiddle/index.html">Project Webmiddle</a>        <ul class="nav">      <li>        <a href="/docs/example/project_webmiddle/site_handler.html">Site handler</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/meta.html">Meta</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/articledetails.html">ArticleDetails</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/searcharticles.html">SearchArticles</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/business_logic.html">Business logic</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/main.html">Main</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/sitemain.html">SiteMain</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/processpage.html">ProcessPage</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/filtering_and_merging.html">Filtering and merging</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/sample_execution.html">Sample execution</a>              </li>    </ul>      </li>    </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Content -->
+            <div class="page-header">
+                <h3 id="cheeriotovirtual">CheerioToVirtual</h3>
+<p>Service that converts a resource, whose content is parsed by the
+<strong>Cheerio</strong> library (a NodeJS implementation of jQuery), to a resource
+whose content is a virtual.</p>
+<p>The cheerio library is able to parse both <strong>HTML and XML documents</strong>, so
+effectively this service can be seen as a converter from HTML/XML to
+virtual.</p>
+<p>As we saw, a <strong>virtual</strong> is just an object with the <em>type</em>, <em>attributes</em>
+and <em>children</em> properties.<br />
+Such an object can thus represent any tree or even any graph structure,
+where nodes can be annotated with attributes.</p>
+<p>A resource whose content is a virtual has the custom contentType
+“<strong>application/x-webmiddle-virtual</strong>”.</p>
+<p>The virtual is used as an <strong>intermediate format</strong>, similarly to an
+intermediate language in a compiler; this separation allows other users
+to develop converters that take the virtual resource as a target, and
+then to compose the two types of converters.</p>
+<p><hr />
+<strong>Example:</strong></p>
+<p>Suppose we have the following converters:</p>
+<ul>
+<li><p>HTML/XML to virtual</p>
+</li>
+<li><p>JSON to virtual</p>
+</li>
+</ul>
+<p>Other users develop independently the following converters:</p>
+<ul>
+<li><p>virtual to JSON</p>
+</li>
+<li><p>virtual to HTML/XML</p>
+</li>
+</ul>
+<p>Now, by just <strong>piping</strong> the converter that produces a virtual to the one
+that takes the virtual as input, we end up having the following
+converters:</p>
+<ul>
+<li><p>HTML/XML to JSON</p>
+</li>
+<li><p>HTML/XML to HTML/XML</p>
+</li>
+<li><p>JSON to JSON</p>
+</li>
+<li><p>JSON to HTML/XML</p>
+</li>
+</ul>
+<hr />
+
+<p>Every converter that produces a virtual, such as this one, also allow to
+specify the <strong>schema</strong> that the result should have. In the other end,
+the converters that take the virtual as input just execute a <strong>full
+conversion</strong>, without modifying the schema.</p>
+<p>The schema is defined by selecting parts of the source document, by
+means of the library used to parse it, i.e. Cheerio in this case. Such
+parts are then mapped to the target document elements as specified in
+the schema.</p>
+<p>The schema is really just another JSX/virtual document.</p>
+<p><hr />
+<strong>Example</strong>:</p>
+<p>Suppose we have the following fragment of a schema:</p>
+<pre><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span> <span class="token attr-name">el</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>article<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+ <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+<p>With <code>el=&quot;article&quot;</code> we are telling to the Cheerio library to return
+the collection of source elements that pass the “article” selector, i.e.
+it will select all the HTML elements having the “article” tagName.</p>
+<p>We are then creating an <strong>“article”</strong> element in our target document,
+which is conceptually associated to the cheerio collection we just
+obtained.</p>
+<p>Since our target document is a virtual, the <strong>created element</strong> is the
+following:</p>
+<pre><code class="language-javascript"><span class="token punctuation">{</span> type<span class="token punctuation">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span> attributes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> children<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token comment" spellcheck="true">/* … */</span><span class="token punctuation">]</span> <span class="token punctuation">}</span></code></pre>
+<p>We then proceed by <strong>recursively</strong> evaluating the children of the schema
+article element.</p>
+<p>Every query selector specified in such children is restricted to the
+portion(s) of the HTML document selected by the parent.</p>
+<hr />
+
+<p>Is important to note that when we use a selector, we are always getting
+as output a <strong>collection of elements</strong>, even if only one element is
+found. This is how jQuery and other selector libraries work, it is just
+a more general approach.</p>
+<p>This applies to all the “to virtual” converters.</p>
+<p>The service also provides helper functions that can be used to extract
+data from the selected collection, e.g. the value of an attribute, the
+text content and so on.</p>
+<p>Most of these helper functions are executed on the first element of the
+collection, but there are others that are executed on every element.</p>
+<p><br />
+<strong>Properties</strong>:</p>
+<table class="table table-bordered table-striped table-responsive">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>The name of the returned resource.</td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td>The HTML/XML resource to convert.</td>
+    </tr>
+    <tr>
+      <td>fullConversion (optional)</td>
+      <td>Set this to true to do a 1:1 conversion, without having to specify a schema.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Every <strong>schema element</strong> can have the following <strong>properties</strong>:</p>
+<ul>
+<li><p><strong>el.</strong> Can be specified as:</p>
+<ul>
+<li><p>Cheerio selector.</p>
+</li>
+<li><p>Cheerio collection.<br />
+Defaults to the parent collection.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>condition</strong>. A filter function that is called with every element
+of the current Cheerio collection, must return true to include the
+element, false to exclude it.</p>
+</li>
+</ul>
+<p><br />
+Every child of a schema element is <strong>processed</strong> by executing the
+following steps::</p>
+<p>1)  As first thing, it is <strong>evaluated</strong> by means of the webmiddle
+    evaluate function. The “functionParameters” option is set to
+    [sourceEl, source], where sourceEl is the current Cheerio
+    collection, while source is the whole source document, as parsed by
+    Cheerio.</p>
+<p><br />
+2)  If the result is a <strong>virtual</strong> (i.e. a part of the schema), then its
+    “el” and “condition” properties are used to select a new Cheerio
+    collection, moreover a new element with the same type of the virtual
+    is created in the target document. The virtual children are then
+    processed recursively.</p>
+<p><br />
+3)  If the result is a <strong>DOM node</strong>, then we check if such node is
+    either a DOM element or another type, like a text node.<br />
+    In the former case, a new element with the same type of the DOM
+    element is created in the target document, moreover the DOM element
+    children are processed recursively.<br />
+    In the latter case, the result is just the content of the DOM node,
+    i.e. its text content in case of a text node.</p>
+<p><br />
+4)  If the result is an <strong>Array</strong>, then the array is mapped by
+    processing recursively every item. The result is thus a new array
+    where each item is the result of evaluating the original item.</p>
+<p><br />
+5)  If the result is a <strong>Cheerio collection</strong>, then the collection is
+    just converted into a regular array and then the array is processed.</p>
+<p><br />
+6)  If the result is a <strong>plain object</strong>, then the object is mapped into
+    an array of virtuals, where each virtual has the respective object
+    property as a type, no attribute and a single child with the result
+    of processing the respective object value.</p>
+<pre><code class="language-javascript"><span class="token comment" spellcheck="true">// converted into an array of virtuals</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">processObject</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> sourceEl<span class="token punctuation">,</span> source<span class="token punctuation">,</span> webmiddle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> prop <span class="token keyword">of</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> resultItem <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">process</span><span class="token punctuation">(</span>
+      obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">,</span> sourceEl<span class="token punctuation">,</span> source<span class="token punctuation">,</span> webmiddle
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> prop<span class="token punctuation">,</span>
+      attributes<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      children<span class="token punctuation">:</span> <span class="token punctuation">[</span>resultItem<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p><br />
+7)  If the result is <strong>undefined</strong>, then it is converted to <strong>null</strong>.
+    This is because properties having undefined as values are stripped
+    when creating JSON documents, and the virtual document is really
+    just a subset of JSON.</p>
+<p><br />
+8)  As <strong>default</strong>, the result is kept as is.</p>
+<p><br />
+The following <strong>helper functions</strong> are provided. Note that every helper
+function always return a function that, given a Cheerio collection and
+the Cheerio parser (\$), does something on that collection and then
+returns the result.</p>
+<ul>
+<li><p><strong>eAttr(attrName)</strong>: returns the value of the attrName attribute of
+the first element in the collection.</p>
+</li>
+<li><p><strong>elText()</strong>: returns the text of the first element of the
+collection. If the element is a form input / textarea, then its
+value is returned instead.</p>
+</li>
+<li><p><strong>elJoin(separator)</strong>: returns a string obtained by concatenating
+all the collection elements with the specified separator. This is
+useful because a Cheerio collection can also contain plain
+JavaScript types such as strings.</p>
+</li>
+<li><p><strong>elMap(callback)</strong>: a map implementation for Cheerio collections.
+The callback is called with the current element wrapped into a new
+collection.</p>
+</li>
+<li><p><strong>elPipe(tasks)</strong>: given an array of functions that take the current
+Cheerio element and the Cheerio parser as arguments, calls every
+function in order, piping its result to the next one. Returns the
+result of the last function.</p>
+</li>
+</ul>
+
+            </div>
+            <div class="page-nav">
+                
+                <span class="previous">Previous: <a href="/docs/technical_documentation/browser.html">Browser</a></span>
+                
+                
+                <span class="next">Next: <a href="/docs/technical_documentation/jsonselecttovirtual.html">JSONSelectToVirtual</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <footer class="footer text-center text-muted">
+  <p>
+    <span><a href="https://github.com/webmiddle/webmiddle">webmiddle</a></span>
+     · 
+    <span>MIT © <a href="https://github.com/Maluen">Manuel Dell&#x27;Elce</a></span>
+  </p>
+  <p>
+    Found an issue with the docs? Report it <a href="https://github.com/webmiddle/webmiddle.github.io/issues">here</a>.
+  </p>
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="JSX framework for multi-layer web data integration.">
+    <title>Documentation | WebMiddle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+
+    <!-- Prism CSS customized to match github style -->
+    <link rel="stylesheet" href="../../assets/css/prism-custom.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">WebMiddle</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <!-- you can exclude pages using {{#isnt}} helper: {{#isnt data.title 'Blog'}} -->
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li class="active">
+          <a href="/docs">Documentation</a>
+        </li>
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+    <div class="container theme-showcase content" role="main">
+
+      
+<div class="content-header">
+    <div class="container">
+        <h1>Documentation</h1>
+        <p>Learn how to use the framework effectively.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 sidebar">
+            <!-- Sidebar -->
+            <ul class="nav">      <li>        <a href="/docs/introduction.html">Introduction</a>              </li>          <li>        <a href="/docs/overview.html">Overview</a>        <ul class="nav">      <li>        <a href="/docs/jsx_services.html">JSX services</a>              </li>          <li>        <a href="/docs/multiple_layers.html">Multiple layers</a>              </li>    </ul>      </li>          <li>        <a href="/docs/getting_started.html">Getting started</a>              </li>          <li>        <a href="/docs/technical_documentation/index.html">Technical documentation</a>        <ul class="nav">      <li>        <a href="/docs/technical_documentation/webmiddle.html">webmiddle</a>        <ul class="nav">      <li>        <a href="/docs/technical_documentation/evaluate.html">evaluate</a>              </li>          <li>        <a class="active" href="/docs/technical_documentation/callvirtual.html">callVirtual</a>              </li>    </ul>      </li>          <li>        <a href="/docs/technical_documentation/cookiemanager.html">CookieManager</a>              </li>          <li>        <a href="/docs/technical_documentation/pipe.html">Pipe</a>              </li>          <li>        <a href="/docs/technical_documentation/parallel.html">Parallel</a>              </li>          <li>        <a href="/docs/technical_documentation/arraymap.html">ArrayMap</a>              </li>          <li>        <a href="/docs/technical_documentation/resume.html">Resume</a>              </li>          <li>        <a href="/docs/technical_documentation/httprequest.html">HttpRequest</a>              </li>          <li>        <a href="/docs/technical_documentation/browser.html">Browser</a>              </li>          <li>        <a href="/docs/technical_documentation/cheeriotovirtual.html">CheerioToVirtual</a>              </li>          <li>        <a href="/docs/technical_documentation/jsonselecttovirtual.html">JSONSelectToVirtual</a>              </li>          <li>        <a href="/docs/technical_documentation/virtualtojson.html">VirtualToJson</a>              </li>          <li>        <a href="/docs/technical_documentation/html-xml-json_to_json.html">HTML/XML/JSON to JSON</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/index.html">Example: News Search</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/index.html">Site WebMiddles</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/fox_news.html">Fox News</a>              </li>          <li>        <a href="/docs/example/site_webmiddles/the_new_york_times.html">The New York Times</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/project_webmiddle/index.html">Project Webmiddle</a>        <ul class="nav">      <li>        <a href="/docs/example/project_webmiddle/site_handler.html">Site handler</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/meta.html">Meta</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/articledetails.html">ArticleDetails</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/searcharticles.html">SearchArticles</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/business_logic.html">Business logic</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/main.html">Main</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/sitemain.html">SiteMain</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/processpage.html">ProcessPage</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/filtering_and_merging.html">Filtering and merging</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/sample_execution.html">Sample execution</a>              </li>    </ul>      </li>    </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Content -->
+            <div class="page-header">
+                <p><strong>callVirtual</strong></p>
+<p><img src="../../assets/img/documentation/webmiddle_callVirtual.png" alt="callVirtual" title="callVirtual"></p>
+<p>As previously said, a virtual has a type, attributes and children.</p>
+<p>The <strong>type</strong> can be both a string or a function. If it is a
+<strong>function</strong>, then we call such function “a service”. In terms of JSX, a
+type is treated as a string when it begins with a lowercase letter,
+example: <code>&lt;article /&gt;</code>.</p>
+<p>If the type is a <strong>string</strong>, then there isn’t much to evaluate,
+everything is returned as is: the result will be the virtual itself, and
+there will be no change to both options and webmiddle.</p>
+<p><br />
+<strong>1) Finding the webmiddle</strong></p>
+<p><strong>If the type is a service</strong>, then we start by calculating the webmiddle
+to use in the recursive call. A service can specify its webmiddle via
+the static “webmiddle” property; note that this is done automatically
+when registering a service to a webmiddle.</p>
+<p>If the service has no webmiddle, then the current one is used.</p>
+<p><hr />
+<strong>Example:</strong></p>
+<pre><code class="language-javascript"><span class="token keyword">const</span> webmiddle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebMiddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* … */</span> <span class="token punctuation">}</span> 
+MyService<span class="token punctuation">.</span>webmiddle <span class="token operator">=</span> webmiddle<span class="token punctuation">;</span></code></pre>
+<hr />
+
+<p><br />
+<strong>2) Temp link </strong></p>
+<p>We then proceed by checking if a <strong>temporaneous correlation (link)</strong>
+between the service webmiddle and the current webmiddle needs to be
+created.</p>
+<p>Such correlation is needed in case the service webmiddle and the current
+webmiddle aren’t already related.</p>
+<p>Two webmiddles are said <strong>related</strong> if they are the same or if they have
+at least one ancestor in common.</p>
+<p>If they are not related, then we create such temporaneous correlation by
+retrieving the top ancestor of the service webmiddle, by then setting
+its parent to the current webmiddle. Such linked top ancestor is called
+“<strong>linkedWebmiddle</strong>”.</p>
+<p>This way, the current webmiddle will become ancestor of the service
+webmiddle, so that the service will have access to any setting and
+service of the current webmiddle, if they are not overrode by any of the
+other ancestors.</p>
+<p><br />
+<strong>3) Options calculation</strong></p>
+<p>The options to use are calculated by <strong>merging</strong> the following options:</p>
+<ul>
+<li><p>Current evaluate options.</p>
+</li>
+<li><p>Service options specified as static “options” property.</p>
+</li>
+<li><p>Virtual options specified as “options” attribute.</p>
+</li>
+</ul>
+<p>The merge is <strong>in order</strong>, meaning that the virtual options override the
+service options that override the evaluate options.</p>
+<p>Any of these options can be specified either directly as an object or as
+a <strong>function</strong> returning an object. The options function is called with
+the same <strong>properties</strong> that are passed to a normal service, namely:</p>
+<ul>
+<li><p>Any virtual attributes.</p>
+</li>
+<li><p>The virtual children.</p>
+</li>
+<li><p>The webmiddle instance (as previously calculated).</p>
+</li>
+<li><p>The options object, which however is restricted to the currently
+merged options; for example, the service options function will only
+get the current evaluate options. This is because the merge is
+executed in order.</p>
+</li>
+</ul>
+<p><br />
+<strong>4) Props validation via propTypes</strong></p>
+<p>Services can specify the properties they are expecting by means of the
+propTypes static property and the PropTypes library [19].</p>
+<p><hr />
+<strong>Example:</strong></p>
+<pre><code class="language-javascript"><span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> url <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* … */</span>
+<span class="token punctuation">}</span>
+
+MyService<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  url<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<hr />
+
+<p>Such prop types validation is directly extracted from React, thus the
+user can refer to [20] for details.</p>
+<p><br />
+<strong>5) Service execution </strong></p>
+<p>Now that we have the service properties, including webmiddle and
+options, we are ready to call the service with such properties.</p>
+<p>If the service fails, then the <strong>“retries” option</strong> is used to decide if
+and how many retries should be attempted. A negative number means
+infinite retries, while zero means no retries at all.</p>
+<p>The retries option can also be specified as a <strong>function</strong> that, given
+the error object, returns the number of retries. Note that the function
+can also return a promise which will be awaited.</p>
+<p>Once all the retries have been attempted, the <strong>“catch” option</strong> is
+used. Such option is a function that, given the error object, returns
+(eventually with a promise) what should be used instead as the service
+result.</p>
+<p>Finally, the callVirtual returns the result (obtained by calling the
+service), the calculated webmiddle and options, and the linkedWebmiddle
+(if any).</p>
+
+            </div>
+            <div class="page-nav">
+                
+                <span class="previous">Previous: <a href="/docs/technical_documentation/evaluate.html">evaluate</a></span>
+                
+                
+                <span class="next">Next: <a href="/docs/technical_documentation/cookiemanager.html">CookieManager</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <footer class="footer text-center text-muted">
+  <p>
+    <span><a href="https://github.com/webmiddle/webmiddle">webmiddle</a></span>
+     · 
+    <span>MIT © <a href="https://github.com/Maluen">Manuel Dell&#x27;Elce</a></span>
+  </p>
+  <p>
+    Found an issue with the docs? Report it <a href="https://github.com/webmiddle/webmiddle.github.io/issues">here</a>.
+  </p>
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
