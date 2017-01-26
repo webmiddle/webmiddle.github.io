@@ -77,7 +77,7 @@
             <div class="page-header">
                 <h3 id="browser">Browser</h3>
 <p>Similar to the HttpRequest service, but it uses the headless browser
-<strong>PhantomJS</strong> to fetch html pages.</p>
+<strong><a href="http://phantomjs.org/">PhantomJS</a></strong> to fetch html pages.</p>
 <p>The advantage of using such a service is that any <strong>JavaScript</strong>
 contained in the page is executed, thus this service is a must for
 fetching SPAs (single page applications) or any other page with dynamic
@@ -85,7 +85,7 @@ content created in the client-side.</p>
 <p>On the other end, the service has a bigger resource usage <strong>footprint</strong>,
 as it needs to spawn a separate PhantomJS process that communicates with
 the main Node process.</p>
-<p>The service is built on top of the <strong>phantomjs-node</strong> library.</p>
+<p>The service is built on top of the <strong><a href="https://github.com/amir20/phantomjs-node">phantomjs-node</a></strong> library.</p>
 <p>It uses the CookieManager as a jar, so that <strong>cookies</strong> obtained from
 Browser calls can be shared in the HttpRequest calls and vice versa.</p>
 <p>In terms of body conversion, http errors and retries works very
@@ -123,7 +123,7 @@ content will be wrapped into a “pre” HTML element).</p>
     </tr>
     <tr>
       <td>method (optional)</td>
-      <td>The method of the http request, e.g. ‘GET’, ‘POST’. Defaults to ‘GET’.</td>
+      <td>The method of the http request, e.g. &#39;GET&#39;, &#39;POST&#39;. Defaults to &#39;GET&#39;.</td>
     </tr>
     <tr>
       <td>body (optional)</td>
