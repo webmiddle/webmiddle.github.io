@@ -93,8 +93,8 @@ whose name and contentType must be specified as attributes.</p>
 content will be JSON-parsed, otherwise it will be kept as is.</p>
 <p>In case of <strong>http error</strong>, the service fails with an <strong>HttpError
 object</strong> containing the error status code.</p>
-<p>The service sets the “<strong>retries</strong>” options as the one set in the
-“network.retries” webmiddle setting. This way such number can be
+<p>The service sets the <code>retries</code> option as the one set in the
+<code>network.retries</code> webmiddle setting. This way such number can be
 configured at application/webmiddle level:</p>
 <pre><code class="language-javascript">HttpRequest<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> webmiddle <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   retries<span class="token punctuation">:</span> webmiddle<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token string">'network.retries'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>

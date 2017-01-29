@@ -135,7 +135,7 @@ retrying uses a conditional rule based on the http error:</p>
     <span class="token operator">...</span><span class="token punctuation">(</span>searchPrivateJson<span class="token punctuation">.</span>webmiddleSettings <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>The “<strong>network.retries</strong>” setting is used by both HttpRequest and
+<p>The <code>network.retries</code> setting is used by both HttpRequest and
 Browser services. It can also be specified as a function that, given the
 error object (<em>err</em>), returns the number of retries, with a negative
 number stating “infinite retries”.</p>

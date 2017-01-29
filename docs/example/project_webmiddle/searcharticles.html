@@ -208,14 +208,14 @@ Example:</p>
       <span class="token template-string"><span class="token string">`http://www.nytimes.com/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>relativeUrl<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">></span></span></code></pre>
-<p>Here, with <em>“.multimedia &gt; \</em>”<em> we are selecting all the children of
-the “<strong>multimedia</strong>” object. Then we apply a condition to furtherly
-restrict the set of objects to select: all those with the “<strong>subtype</strong>”
-property set to “<em>*thumbnail</em></em>”.</p>
+<p>Here, with <code>.multimedia &gt; *</code> we are selecting all the children of
+the <code>multimedia</code> object. Then we apply a condition to furtherly
+restrict the set of objects to select: all those with the <code>subtype</code>
+property set to <code>thumbnail</code>.</p>
 <p>The value of the image element is obtained by piping two separate steps:</p>
 <ul>
 <li><p><code>elGet(&#39;.url&#39;)</code>: we are finding the first element (property) named
-“<strong>url</strong>” which exists in our collection at any level of dept.</p>
+<code>url</code> which exists in our collection at any level of dept.</p>
 </li>
 <li><p>since such url contains a relative url to the article thumbnail, we
 are then creating an absolute url by prefixing it.</p>
