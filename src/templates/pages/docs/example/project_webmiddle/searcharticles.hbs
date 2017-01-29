@@ -157,15 +157,15 @@ Example:
 </image>
 ```
 
-Here, with *“.multimedia &gt; \*”* we are selecting all the children of
-the “**multimedia**” object. Then we apply a condition to furtherly
-restrict the set of objects to select: all those with the “**subtype**”
-property set to “**thumbnail**”.
+Here, with `.multimedia > *` we are selecting all the children of
+the `multimedia` object. Then we apply a condition to furtherly
+restrict the set of objects to select: all those with the `subtype`
+property set to `thumbnail`.
 
 The value of the image element is obtained by piping two separate steps:
 
 -   `elGet('.url')`: we are finding the first element (property) named
-    “**url**” which exists in our collection at any level of dept.
+    `url` which exists in our collection at any level of dept.
 
 -   since such url contains a relative url to the article thumbnail, we
     are then creating an absolute url by prefixing it.
