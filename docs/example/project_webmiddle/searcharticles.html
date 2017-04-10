@@ -78,11 +78,11 @@
                 <h3 id="searcharticles">SearchArticles</h3>
 <p>Must return an array of article objects.</p>
 <p>The wrapper for foxnews.com is straightforward:</p>
-<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SearchArticles</span><span class="token punctuation">(</span><span class="token punctuation">{</span> webmiddle<span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token operator">...</span>rest <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SearchArticles</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>
       <span class="token operator">&lt;</span>Parent
-        <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span>
+        <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span>
         name<span class="token operator">=</span><span class="token string">"page"</span>
       <span class="token operator">/</span><span class="token operator">></span>
 
@@ -123,7 +123,7 @@ useful JSON API for searching articles, thus our parent SearchArticles
 service just calls such API and returns the output as is.</p>
 <p>That JSON output needs to be converted into the project format:</p>
 <pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SearchArticles</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  nytimesApiKey<span class="token punctuation">,</span> webmiddle<span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token operator">...</span>rest
+  nytimesApiKey<span class="token punctuation">,</span> <span class="token operator">...</span>rest
 <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>

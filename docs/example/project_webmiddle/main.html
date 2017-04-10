@@ -76,8 +76,8 @@
             <!-- Content -->
             <div class="page-header">
                 <h3 id="main">Main</h3>
-<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token punctuation">{</span> webmiddle<span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token operator">...</span>rest <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> sites <span class="token punctuation">}</span> <span class="token operator">=</span> rest<span class="token punctuation">;</span>
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">Main</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> sites <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Parallel</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>articlesBySite<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -85,7 +85,7 @@
           <span class="token keyword">const</span> siteWebMiddle <span class="token operator">=</span> siteWebMiddles<span class="token punctuation">[</span>siteName<span class="token punctuation">]</span><span class="token punctuation">;</span>
           <span class="token keyword">return</span> <span class="token punctuation">(</span>
             <span class="token operator">&lt;</span>SiteMain
-              <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span>
+              <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span>
               site<span class="token operator">=</span><span class="token punctuation">{</span>siteWebMiddle<span class="token punctuation">}</span>
               name<span class="token operator">=</span><span class="token punctuation">{</span>siteName<span class="token punctuation">}</span>
             <span class="token operator">/</span><span class="token operator">></span>

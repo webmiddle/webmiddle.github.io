@@ -76,14 +76,14 @@
             <!-- Content -->
             <div class="page-header">
                 <h3 id="sitemain">SiteMain</h3>
-<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SiteMain</span><span class="token punctuation">(</span><span class="token punctuation">{</span> webmiddle<span class="token punctuation">,</span> options<span class="token punctuation">,</span> <span class="token operator">...</span>rest <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> <span class="token punctuation">{</span> site <span class="token punctuation">}</span> <span class="token operator">=</span> rest<span class="token punctuation">;</span>
+<pre><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">SiteMain</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> site <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
   <span class="token keyword">const</span> Meta <span class="token operator">=</span> site<span class="token punctuation">.</span><span class="token function">service</span><span class="token punctuation">(</span><span class="token string">'Meta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">return</span> <span class="token punctuation">(</span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>
       <span class="token operator">&lt;</span>Meta
-        <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span>
+        <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span>
         name<span class="token operator">=</span><span class="token string">"meta"</span>
       <span class="token operator">/</span><span class="token operator">></span>
 
@@ -95,10 +95,10 @@
           <span class="token attr-name">callback</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>i <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
             <span class="token operator">&lt;</span>Resume savePath<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token string">`./</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>site<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/articles_</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
               <span class="token operator">&lt;</span>ProcessPage
-                <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span>
+                <span class="token punctuation">{</span><span class="token operator">...</span>props<span class="token punctuation">}</span>
                 name<span class="token operator">=</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span>
                 pageNumber<span class="token operator">=</span><span class="token punctuation">{</span>i<span class="token punctuation">}</span>
-                filters<span class="token operator">=</span><span class="token punctuation">{</span>rest<span class="token punctuation">}</span>
+                filters<span class="token operator">=</span><span class="token punctuation">{</span>props<span class="token punctuation">}</span>
               <span class="token operator">/</span><span class="token operator">></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Resume</span><span class="token punctuation">></span></span>
           <span class="token punctuation">)</span><span class="token punctuation">}</span>

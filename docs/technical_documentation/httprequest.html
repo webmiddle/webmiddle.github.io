@@ -96,9 +96,9 @@ object</strong> containing the error status code.</p>
 <p>The service sets the <code>retries</code> option as the one set in the
 <code>network.retries</code> webmiddle setting. This way such number can be
 configured at application/webmiddle level:</p>
-<pre><code class="language-javascript">HttpRequest<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> webmiddle <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  retries<span class="token punctuation">:</span> webmiddle<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token string">'network.retries'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre><code class="language-javascript">HttpRequest<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token function">pickDefaults</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  retries<span class="token punctuation">:</span> context<span class="token punctuation">.</span>webmiddle<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token string">'network.retries'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> context<span class="token punctuation">.</span>options<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><br />
 <strong>Properties:</strong></p>
 <table class="table table-bordered table-striped table-responsive">

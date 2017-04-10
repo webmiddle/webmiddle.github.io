@@ -122,14 +122,13 @@ with the article obtained from ArticleDetails.
     <span class="token attr-name">limit</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">}</span></span>
     <span class="token attr-name">callback</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>articleContent <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>
-        <span class="token operator">&lt;</span>ArticleDetails
-          <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>rest<span class="token punctuation">}</span>
-          name<span class="token operator">=</span><span class="token string">"articleDetails"</span>
-          url<span class="token punctuation">=</span><span class="token punctuation">{</span>articleContent<span class="token punctuation">.</span>url<span class="token punctuation">}</span>
-          options<span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
-            <span class="token keyword">catch</span><span class="token punctuation">:</span> createEmptyArticleDetails<span class="token punctuation">,</span>
-          <span class="token punctuation">}</span><span class="token punctuation">}</span></span>
-        <span class="token punctuation">/></span></span>
+        <span class="token operator">&lt;</span>WithOptions <span class="token keyword">catch</span><span class="token punctuation">=</span><span class="token punctuation">{</span>createEmptyArticleDetails<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+          <span class="token operator">&lt;</span>ArticleDetails
+            <span class="token punctuation">{</span><span class="token operator">...</span>rest<span class="token punctuation">}</span>
+            name<span class="token operator">=</span><span class="token string">"articleDetails"</span>
+            url<span class="token operator">=</span><span class="token punctuation">{</span>articleContent<span class="token punctuation">.</span>url<span class="token punctuation">}</span>
+          <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>WithOptions</span><span class="token punctuation">></span></span>
 
         <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
           name<span class="token punctuation">:</span> <span class="token string">'article'</span><span class="token punctuation">,</span>

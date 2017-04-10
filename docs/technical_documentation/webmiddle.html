@@ -172,11 +172,11 @@ resource converters such as the CheerioToVirtual service.</p>
 object having only the following properties: name, contentType and
 content.</p>
 </li>
-<li><p><strong>evaluate(value, options)<br />
+<li><p><strong>evaluate(context, value)<br />
 </strong>The most important function, can evaluate pretty much anything: a
 function, a promise, a virtual, a resource and so on.</p>
 </li>
-<li><p><strong>callVirtual(virtual, options)<br />
+<li><p><strong>callVirtual(context, virtual)<br />
 </strong>It is mostly used by the evaluate function, it is used to
 translate a virtual into the actual service call, by making sure to
 also pass the correct properties (props) to the service. It also
