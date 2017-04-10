@@ -30,9 +30,9 @@ The service sets the `retries` option as the one set in the
 configured at application/webmiddle level:
 
 ```javascript
-HttpRequest.options = ({ webmiddle }) => ({
-  retries: webmiddle.setting('network.retries'),
-});
+HttpRequest.options = (props, context) => (pickDefaults({
+  retries: context.webmiddle.setting('network.retries'),
+}, context.options));
 ```
 
 <br />

@@ -28,11 +28,11 @@ count element. This was the code from foxnews.com:
 The service wrapper is thus the following:
 
 ```jsx
-function Meta({ webmiddle, options, ...rest }) {
+function Meta(props) {
   return (
     <Pipe>
       <Parent
-        {...rest}
+        {...props}
         name="firstPage"
         pageNumber={0}
       />

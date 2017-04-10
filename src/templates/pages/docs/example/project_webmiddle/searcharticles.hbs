@@ -6,11 +6,11 @@ Must return an array of article objects.
 The wrapper for foxnews.com is straightforward:
 
 ```jsx
-function SearchArticles({ webmiddle, options, ...rest }) {
+function SearchArticles(props) {
   return (
     <Pipe>
       <Parent
-        {...rest}
+        {...props}
         name="page"
       />
 
@@ -61,7 +61,7 @@ That JSON output needs to be converted into the project format:
 
 ```jsx
 function SearchArticles({
-  nytimesApiKey, webmiddle, options, ...rest
+  nytimesApiKey, ...rest
 }) {
   return (
     <Pipe>

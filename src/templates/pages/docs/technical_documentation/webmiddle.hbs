@@ -106,11 +106,11 @@ A webmiddle instance has the following **functions**:
     object having only the following properties: name, contentType and
     content.
 
--   **evaluate(value, options)<br />
+-   **evaluate(context, value)<br />
     **The most important function, can evaluate pretty much anything: a
     function, a promise, a virtual, a resource and so on.
 
--   **callVirtual(virtual, options)<br />
+-   **callVirtual(context, virtual)<br />
     **It is mostly used by the evaluate function, it is used to
     translate a virtual into the actual service call, by making sure to
     also pass the correct properties (props) to the service. It also

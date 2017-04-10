@@ -56,14 +56,13 @@ It is composed of the following steps:
             limit={1}
             callback={articleContent => (
               <Pipe>
-                <ArticleDetails
-                  {...rest}
-                  name="articleDetails"
-                  url={articleContent.url}
-                  options=\{{
-                    catch: createEmptyArticleDetails,
-                  }}
-                />
+                <WithOptions catch={createEmptyArticleDetails}>
+                  <ArticleDetails
+                    {...rest}
+                    name="articleDetails"
+                    url={articleContent.url}
+                  />
+                </WithOptions>
 
                 {() => ({
                   name: 'article',

@@ -2,8 +2,8 @@
 ### Main
 
 ```jsx
-function Main({ webmiddle, options, ...rest }) {
-  const { sites } = rest;
+function Main(props) {
+  const { sites } = props;
   return (
     <Pipe>
       <Parallel name="articlesBySite">
@@ -11,7 +11,7 @@ function Main({ webmiddle, options, ...rest }) {
           const siteWebMiddle = siteWebMiddles[siteName];
           return (
             <SiteMain
-              {...rest}
+              {...props}
               site={siteWebMiddle}
               name={siteName}
             />

@@ -192,12 +192,12 @@ following steps::
 
 ```javascript
 // converted into an array of virtuals
-async function processObject(obj, sourceEl, source, webmiddle) {
+async function processObject(obj, sourceEl, source, context) {
   const result = [];
 
   for (const prop of Object.keys(obj)) {
     const resultItem = await process(
-      obj[prop], sourceEl, source, webmiddle
+      obj[prop], sourceEl, source, context
     );
     result.push({
       type: prop,

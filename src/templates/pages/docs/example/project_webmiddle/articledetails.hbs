@@ -17,11 +17,11 @@ function fixArticle(article) {
   };
 }
 
-function ArticleDetails({ webmiddle, options, ...rest }) {
+function ArticleDetails(props) {
   return (
     <Pipe>
       <Parent
-        {...rest}
+        {...props}
         name="page"
       />
 
