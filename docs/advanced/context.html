@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Node.js JSX framework for modular web scraping and data integration">
+    <title>Documentation | WebMiddle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+
+    <!-- Prism CSS customized to match github style -->
+    <link rel="stylesheet" href="../../assets/css/prism-custom.css">
+
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/theme.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">WebMiddle</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <!-- you can exclude pages using {{#isnt}} helper: {{#isnt data.title 'Blog'}} -->
+        
+        <li>
+          <a href="/">Home</a>
+        </li>
+        
+        <li class="active">
+          <a href="/docs">Documentation</a>
+        </li>
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+    <div class="container theme-showcase content" role="main">
+
+      
+<div class="content-header">
+    <div class="container">
+        <h1>Documentation</h1>
+        <p>Learn how to use the framework effectively.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 sidebar">
+            <!-- Sidebar -->
+            <ul class="nav">      <li>        <a href="/docs/introduction.html">Introduction</a>              </li>          <li>        <a href="/docs/getting_started.html">Getting started</a>              </li>          <li>        <a href="/docs/overview.html">Overview</a>        <ul class="nav">      <li>        <a href="/docs/jsx_services.html">JSX services</a>              </li>          <li>        <a href="/docs/webmiddle_objects.html">WebMiddle objects</a>              </li>          <li>        <a href="/docs/multiple_layers.html">Multiple layers</a>              </li>    </ul>      </li>          <li>        <a href="/docs/advanced/index.html">Advanced</a>        <ul class="nav">      <li>        <a class="active" href="/docs/advanced/context.html">context</a>              </li>          <li>        <a href="/docs/advanced/evaluate.html">evaluate</a>        <ul class="nav">      <li>        <a href="/docs/advanced/callvirtual.html">callVirtual</a>              </li>    </ul>      </li>    </ul>      </li>          <li>        <a href="/docs/packages.html">Packages</a>              </li>          <li>        <a href="/docs/example/index.html">Example: News Search</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/index.html">Site WebMiddles</a>        <ul class="nav">      <li>        <a href="/docs/example/site_webmiddles/fox_news.html">Fox News</a>              </li>          <li>        <a href="/docs/example/site_webmiddles/the_new_york_times.html">The New York Times</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/project_webmiddle/index.html">Project Webmiddle</a>        <ul class="nav">      <li>        <a href="/docs/example/project_webmiddle/site_handler.html">Site handler</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/meta.html">Meta</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/articledetails.html">ArticleDetails</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/searcharticles.html">SearchArticles</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/business_logic.html">Business logic</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/main.html">Main</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/sitemain.html">SiteMain</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/processpage.html">ProcessPage</a>              </li>          <li>        <a href="/docs/example/project_webmiddle/filtering_and_merging.html">Filtering and merging</a>              </li>    </ul>      </li>          <li>        <a href="/docs/example/sample_execution.html">Sample execution</a>              </li>    </ul>      </li>    </ul>
+        </div>
+
+        <div class="col-lg-9">
+            <!-- Content -->
+            <div class="page-header">
+                <h3 id="context">context</h3>
+<p>A context represents the current evaluation state and is used to drive the further evaluation of services.<br>It is composed of a <strong>webmiddle</strong> object and of an <strong>options</strong> object.</p>
+<p>A new context can be created with the <code>createContext</code> function:</p>
+<pre><code class="language-javascript"><span class="token keyword">import</span> WebMiddle<span class="token punctuation">,</span> <span class="token punctuation">{</span> createContext <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'webmiddle'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> webmiddle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebMiddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token function">createContext</span><span class="token punctuation">(</span>webmiddle<span class="token punctuation">,</span> <span class="token punctuation">{</span> expectResource<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> otherContext <span class="token operator">=</span> <span class="token function">createContext</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token punctuation">{</span> retries<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// extends an existing context</span>
+
+<span class="token comment" spellcheck="true">// otherContext has the same webmiddle of context but has the following options:</span>
+<span class="token comment" spellcheck="true">// { expectResource: true, retries: 1 }</span></code></pre>
+<p>Once you have a context, you can evaluate anything you want by using it:</p>
+<pre><code class="language-jsx"><span class="token keyword">const</span> webmiddle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebMiddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">evaluate</span><span class="token punctuation">(</span><span class="token function">createContext</span><span class="token punctuation">(</span>webmiddle<span class="token punctuation">,</span> <span class="token punctuation">{</span> expectResource<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FetchPageLinks</span>
+    <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://news.ycombinator.com/<span class="token punctuation">"</span></span>
+    <span class="token attr-name">query</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span>
+  <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>outputResource <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
+    JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>outputResource<span class="token punctuation">.</span>content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>It is passed to services as the second argument:</p>
+<pre><code class="language-jsx"><span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// console.log(context.webmiddle)</span>
+  <span class="token comment" spellcheck="true">// console.log(context.options);</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>Services can override the context via static properties:</p>
+<pre><code class="language-jsx"><span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>options<span class="token punctuation">.</span>retries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MyService<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  retries<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+MyService<span class="token punctuation">.</span>webmiddle <span class="token operator">=</span> otherWebmiddle<span class="token punctuation">;</span></code></pre>
+<p>You can also specify them as functions:</p>
+<pre><code class="language-jsx"><span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>options<span class="token punctuation">.</span>retries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MyService<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  retries<span class="token punctuation">:</span> context<span class="token punctuation">.</span>webmiddle<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token string">'network.retries'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+MyService<span class="token punctuation">.</span>webmiddle <span class="token operator">=</span> otherWebmiddle<span class="token punctuation">;</span></code></pre>
+<p>In case you just need to set default options, you can use the <code>pickDefaults</code> helper:</p>
+<pre><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> pickDefaults <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'webmiddle'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MyService<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">(</span>props<span class="token punctuation">,</span> context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token function">pickDefaults</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  retries<span class="token punctuation">:</span> context<span class="token punctuation">.</span>webmiddle<span class="token punctuation">.</span><span class="token function">setting</span><span class="token punctuation">(</span><span class="token string">'network.retries'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> context<span class="token punctuation">.</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>There is also an useful <code>WithOptions</code> service that can be used to extend a context directly with JSX:</p>
+<pre><code class="language-jsx">
+<span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>WithOptions</span> <span class="token attr-name">myCustomOption</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fun<span class="token punctuation">"</span></span> <span class="token attr-name">anotherOption</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>forever<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>OtherService</span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>WithOptions</span><span class="token punctuation">></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><code>OtherService</code> will be evaluated with a new context obtained by extending the current context options with the <code>{ myCustomOption: &#39;fun&#39;, anotherOption: &#39;forever&#39; }</code> object.</p>
+
+            </div>
+            <div class="page-nav">
+                
+                <span class="previous">Previous: <a href="/docs/advanced/index.html">Advanced</a></span>
+                
+                
+                <span class="next">Next: <a href="/docs/advanced/evaluate.html">evaluate</a></span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <footer class="footer text-center text-muted">
+  <p>
+    <span><a href="https://github.com/webmiddle/webmiddle">webmiddle</a></span>
+     · 
+    <span>MIT © <a href="https://github.com/Maluen">Manuel Dell&#x27;Elce</a></span>
+  </p>
+  <p>
+    Found an issue with the docs? Report it <a href="https://github.com/webmiddle/webmiddle.github.io/issues">here</a>.
+  </p>
+</footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../assets/js/bootstrap.min.js"></script>
+  </body>
+</html>
