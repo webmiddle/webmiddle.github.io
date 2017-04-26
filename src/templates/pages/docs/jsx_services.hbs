@@ -126,7 +126,7 @@ Will be called as:
 
 ```javascript
 Pipe({ 
-  children: [{ type: HttpRequest, … }, { type: HtmlToJson, … }]
+  children: [{ type: HttpRequest, … }, { type: (rawHtml) => HtmlToJson, … }]
 })
 ```
 

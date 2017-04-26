@@ -3,10 +3,16 @@
     "title": "Introduction"
   },
   {
+    "title": "Getting started"
+  },
+  {
     "title": "Overview",
     "children": [
       {
         "title": "JSX services"
+      },
+      {
+        "title": "WebMiddle objects"
       },
       {
         "title": "Multiple layers"
@@ -14,57 +20,24 @@
     ]
   },
   {
-    "title": "Getting started"
-  },
-  {
-    "title": "Technical documentation",
-    "baseHref": "technical_documentation",
+    "title": "Advanced",
+    "baseHref": "advanced",
     "children": [
       {
-        "title": "webmiddle",
+        "title": "context"
+      },
+      {
+        "title": "evaluate",
         "children": [
-          {
-            "title": "evaluate"
-          },
           {
             "title": "callVirtual"
           }
         ]
-      },
-      {
-        "title": "CookieManager"
-      },
-      {
-        "title": "Pipe"
-      },
-      {
-        "title": "Parallel"
-      },
-      {
-        "title": "ArrayMap"
-      },
-      {
-        "title": "Resume"
-      },
-      {
-        "title": "HttpRequest"
-      },
-      {
-        "title": "Browser"
-      },
-      {
-        "title": "CheerioToVirtual"
-      },
-      {
-        "title": "JSONSelectToVirtual"
-      },
-      {
-        "title": "VirtualToJson"
-      },
-      {
-        "title": "HTML/XML/JSON to JSON"
       }
     ]
+  },
+  {
+    "title": "Packages"
   },
   {
     "title": "Example: News Search",

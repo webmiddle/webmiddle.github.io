@@ -109,7 +109,7 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= config.dist %>/docs/': ['<%= config.src %>/templates/pages/docs/*.hbs'],
-          '<%= config.dist %>/docs/technical_documentation/': ['<%= config.src %>/templates/pages/docs/technical_documentation/*.hbs'],
+          '<%= config.dist %>/docs/advanced/': ['<%= config.src %>/templates/pages/docs/advanced/*.hbs'],
           '<%= config.dist %>/docs/example/': ['<%= config.src %>/templates/pages/docs/example/*.hbs'],
           '<%= config.dist %>/docs/example/site_webmiddles/': ['<%= config.src %>/templates/pages/docs/example/site_webmiddles/*.hbs'],
           '<%= config.dist %>/docs/example/project_webmiddle/': ['<%= config.src %>/templates/pages/docs/example/project_webmiddle/*.hbs'],
