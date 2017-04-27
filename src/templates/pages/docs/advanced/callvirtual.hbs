@@ -19,7 +19,7 @@ there will be no change to both options and webmiddle.
 
 **If the type is a service**, then we start by calculating the webmiddle
 to use in the recursive call. A service can specify its webmiddle via
-the static “webmiddle” property; note that this is done automatically
+the static `webmiddle` property; note that this is done automatically
 when registering a service to a webmiddle.
 
 If the service has no webmiddle, then the current one is used.
@@ -64,12 +64,10 @@ The options to use are calculated by **merging** the following options:
 
 -   Current evaluate options.
 
--   Service options specified as static “options” property.
+-   Service options specified as static `options` property.
 
--   Virtual options specified as “options” attribute.
-
-The merge is **in order**, meaning that the virtual options override the
-service options that override the evaluate options.
+The merge is **in order**, meaning that the service options
+override the current evaluate options.
 
 Any of these options can be specified either directly as an object or as
 a **function** returning an object. The options function is called with
@@ -79,12 +77,11 @@ the same **properties** that are passed to a normal service, namely:
 
 -   The virtual children.
 
+Moreover, we also pass the context calculated up to that point:
+
 -   The webmiddle instance (as previously calculated).
 
--   The options object, which however is restricted to the currently
-    merged options; for example, the service options function will only
-    get the current evaluate options. This is because the merge is
-    executed in order.
+-   The current evaluate options.
 
 <br />
 **4) Props validation via propTypes**
@@ -112,23 +109,20 @@ user can refer to [this article](https://facebook.github.io/react/docs/typecheck
 <br />
 **5) Service execution **
 
-Now that we have the service properties, including webmiddle and
-options, we are ready to call the service with such properties.
+Now that we have the service properties and the new context,
+we are ready to call the service with them.
 
-If the service fails, then the **“retries” option** is used to decide if
+If the service fails, then `context.options.retries` is used to decide if
 and how many retries should be attempted. A negative number means
-infinite retries, while zero means no retries at all.
+infinite retries, while zero means no retries at all (the default).
 
 The retries option can also be specified as a **function** that, given
 the error object, returns the number of retries. Note that the function
 can also return a promise which will be awaited.
 
-Once all the retries have been attempted, the **“catch” option** is
-used. Such option is a function that, given the error object, returns
+Once all the retries have been attempted without success,
+the `context.options.catch` is used.
+Such option is a function that, given the error object, returns
 (eventually with a promise) what should be used instead as the service
 result.
-
-Finally, the callVirtual returns the result (obtained by calling the
-service), the calculated webmiddle and options, and the linkedWebmiddle
-(if any).
 {{/markdown}}

@@ -17,14 +17,14 @@ Let’s see these actions.
 
 <br />
 **1)** If value is a **function**, then that function is called by
-spreading as arguments the **options.functionParameters** array, if such
+spreading as arguments the `context.options.functionParameters` array, if such
 option isn’t set, then the function is called without arguments.
 
 <hr />
 **Example:**
 
-The Pipe service sets the `options.functionParameters` to the resources
-object, this allows the user to specify a JSX children as a function
+The Pipe service sets the `context.options.functionParameters` to an array containing the resources
+object, this allows the user to specify the JSX children as functions
 expecting the resources obtained up to that point.
 <hr />
 
@@ -35,18 +35,17 @@ resolving of such promise, so to obtain the resolved value.
 <br />
 **3) Virtual**
 
-If value is a **virtual**, then the callVirtual function is used to call
+If value is a **virtual**, then the `callVirtual` function is used to call
 the service associated to such virtual. The callVirtual will also create
 a new options object based on the current options and on any options
-specified by both the virtual (as attribute) and the virtual service (as
-static property).
+specified by the virtual service (as static property).
 
 The callVirtual will also retrieve the webmiddle instance to use in the
 recursive call (i.e. down the call chain).
 
-Thus, the evaluate function will use the new webmiddle and the new
-options object in the recursive call. That way they will be passed down
-the call chain.
+Thus, in the recursive call the evaluate function will use a new context
+made of the new webmiddle and of the new options object.
+That way they will be passed down the call chain.
 
 <hr />
 **Example:**
@@ -54,7 +53,7 @@ the call chain.
 virtual:
 
 ```jsx
-<MyService options=\{{ retries: 10 }} />
+<MyService />
 ```
 
 Where MyService is defined as follows:
@@ -63,10 +62,14 @@ Where MyService is defined as follows:
 const MyService = () => (
   <MyOtherService />
 );
+
+MyService.options = {
+  retries: 5,
+};
 ```
 
-In this case, evaluating *virtual* will lead to `<MyOtherService />`
-to be evaluated recursively with the `{ retries: 10 }` options.
+In this case, evaluating `virtual` with a context having the `{ retries: 10 }` options,
+will lead to `<MyOtherService />` to be evaluated recursively with a **new** context having the `{ retries: 5 }` options.
 <hr />
 
 See the [callVirtual section](http://localhost:9000/docs/technical_documentation/callvirtual.html) for details on how the new options and the
@@ -78,7 +81,7 @@ temporaneous parent.
 
 Another step that is executed after the recursive call completed is the
 **resource override**: if the result is a resource, then the resource
-name and contentType are replaced with the name and contentType
+`name` and `contentType` are replaced with the `name` and `contentType`
 attributes of the top virtual, if any.
 
 <hr />
@@ -116,7 +119,7 @@ referenced by their names, such as in the Pipe and Parallel services.
 
 <br />
 **4)** If value isn’t a **resource**, then the system checks if the
-options.expectResource is true, in such a case, an exception will be
+`context.options.expectResource` is true, in such a case, an exception will be
 thrown.
 
 <br />
