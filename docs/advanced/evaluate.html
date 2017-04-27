@@ -88,12 +88,12 @@ so on.</p>
 <p>Let’s see these actions.</p>
 <p><br />
 <strong>1)</strong> If value is a <strong>function</strong>, then that function is called by
-spreading as arguments the <strong>options.functionParameters</strong> array, if such
+spreading as arguments the <code>context.options.functionParameters</code> array, if such
 option isn’t set, then the function is called without arguments.</p>
 <p><hr />
 <strong>Example:</strong></p>
-<p>The Pipe service sets the <code>options.functionParameters</code> to the resources
-object, this allows the user to specify a JSX children as a function
+<p>The Pipe service sets the <code>context.options.functionParameters</code> to an array containing the resources
+object, this allows the user to specify the JSX children as functions
 expecting the resources obtained up to that point.</p>
 <hr />
 
@@ -102,26 +102,29 @@ expecting the resources obtained up to that point.</p>
 resolving of such promise, so to obtain the resolved value.</p>
 <p><br />
 <strong>3) Virtual</strong></p>
-<p>If value is a <strong>virtual</strong>, then the callVirtual function is used to call
+<p>If value is a <strong>virtual</strong>, then the <code>callVirtual</code> function is used to call
 the service associated to such virtual. The callVirtual will also create
 a new options object based on the current options and on any options
-specified by both the virtual (as attribute) and the virtual service (as
-static property).</p>
+specified by the virtual service (as static property).</p>
 <p>The callVirtual will also retrieve the webmiddle instance to use in the
 recursive call (i.e. down the call chain).</p>
-<p>Thus, the evaluate function will use the new webmiddle and the new
-options object in the recursive call. That way they will be passed down
-the call chain.</p>
+<p>Thus, in the recursive call the evaluate function will use a new context
+made of the new webmiddle and of the new options object.
+That way they will be passed down the call chain.</p>
 <p><hr />
 <strong>Example:</strong></p>
 <p>virtual:</p>
-<pre><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyService</span> <span class="token attr-name">options</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span> retries<span class="token punctuation">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span></code></pre>
+<pre><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyService</span> <span class="token punctuation">/></span></span></code></pre>
 <p>Where MyService is defined as follows:</p>
 <pre><code class="language-jsx"><span class="token keyword">const</span> MyService <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>MyOtherService</span> <span class="token punctuation">/></span></span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>In this case, evaluating <em>virtual</em> will lead to <code>&lt;MyOtherService /&gt;</code>
-to be evaluated recursively with the <code>{ retries: 10 }</code> options.</p>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+MyService<span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  retries<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>In this case, evaluating <code>virtual</code> with a context having the <code>{ retries: 10 }</code> options,
+will lead to <code>&lt;MyOtherService /&gt;</code> to be evaluated recursively with a <strong>new</strong> context having the <code>{ retries: 5 }</code> options.</p>
 <hr />
 
 <p>See the <a href="http://localhost:9000/docs/technical_documentation/callvirtual.html">callVirtual section</a> for details on how the new options and the
@@ -131,7 +134,7 @@ correlation that was created will be destroyed by removing the
 temporaneous parent.</p>
 <p>Another step that is executed after the recursive call completed is the
 <strong>resource override</strong>: if the result is a resource, then the resource
-name and contentType are replaced with the name and contentType
+<code>name</code> and <code>contentType</code> are replaced with the <code>name</code> and <code>contentType</code>
 attributes of the top virtual, if any.</p>
 <p><hr />
 <strong>Example:</strong></p>
@@ -154,7 +157,7 @@ sure that resources will have expected names, since they will be often
 referenced by their names, such as in the Pipe and Parallel services.</p>
 <p><br />
 <strong>4)</strong> If value isn’t a <strong>resource</strong>, then the system checks if the
-options.expectResource is true, in such a case, an exception will be
+<code>context.options.expectResource</code> is true, in such a case, an exception will be
 thrown.</p>
 <p><br />
 <strong>5)</strong> As <strong>default</strong>, the value is returned as is.</p>

@@ -89,7 +89,7 @@ there will be no change to both options and webmiddle.</p>
 <strong>1) Finding the webmiddle</strong></p>
 <p><strong>If the type is a service</strong>, then we start by calculating the webmiddle
 to use in the recursive call. A service can specify its webmiddle via
-the static “webmiddle” property; note that this is done automatically
+the static <code>webmiddle</code> property; note that this is done automatically
 when registering a service to a webmiddle.</p>
 <p>If the service has no webmiddle, then the current one is used.</p>
 <p><hr />
@@ -122,13 +122,11 @@ other ancestors.</p>
 <ul>
 <li><p>Current evaluate options.</p>
 </li>
-<li><p>Service options specified as static “options” property.</p>
-</li>
-<li><p>Virtual options specified as “options” attribute.</p>
+<li><p>Service options specified as static <code>options</code> property.</p>
 </li>
 </ul>
-<p>The merge is <strong>in order</strong>, meaning that the virtual options override the
-service options that override the evaluate options.</p>
+<p>The merge is <strong>in order</strong>, meaning that the service options
+override the current evaluate options.</p>
 <p>Any of these options can be specified either directly as an object or as
 a <strong>function</strong> returning an object. The options function is called with
 the same <strong>properties</strong> that are passed to a normal service, namely:</p>
@@ -137,12 +135,12 @@ the same <strong>properties</strong> that are passed to a normal service, namely
 </li>
 <li><p>The virtual children.</p>
 </li>
+</ul>
+<p>Moreover, we also pass the context calculated up to that point:</p>
+<ul>
 <li><p>The webmiddle instance (as previously calculated).</p>
 </li>
-<li><p>The options object, which however is restricted to the currently
-merged options; for example, the service options function will only
-get the current evaluate options. This is because the merge is
-executed in order.</p>
+<li><p>The current evaluate options.</p>
 </li>
 </ul>
 <p><br />
@@ -164,21 +162,19 @@ MyService<span class="token punctuation">.</span>propTypes <span class="token op
 user can refer to <a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">this article</a> for details.</p>
 <p><br />
 <strong>5) Service execution </strong></p>
-<p>Now that we have the service properties, including webmiddle and
-options, we are ready to call the service with such properties.</p>
-<p>If the service fails, then the <strong>“retries” option</strong> is used to decide if
+<p>Now that we have the service properties and the new context,
+we are ready to call the service with them.</p>
+<p>If the service fails, then <code>context.options.retries</code> is used to decide if
 and how many retries should be attempted. A negative number means
-infinite retries, while zero means no retries at all.</p>
+infinite retries, while zero means no retries at all (the default).</p>
 <p>The retries option can also be specified as a <strong>function</strong> that, given
 the error object, returns the number of retries. Note that the function
 can also return a promise which will be awaited.</p>
-<p>Once all the retries have been attempted, the <strong>“catch” option</strong> is
-used. Such option is a function that, given the error object, returns
+<p>Once all the retries have been attempted without success,
+the <code>context.options.catch</code> is used.
+Such option is a function that, given the error object, returns
 (eventually with a promise) what should be used instead as the service
 result.</p>
-<p>Finally, the callVirtual returns the result (obtained by calling the
-service), the calculated webmiddle and options, and the linkedWebmiddle
-(if any).</p>
 
             </div>
             <div class="page-nav">
