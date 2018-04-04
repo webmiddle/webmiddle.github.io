@@ -45,7 +45,7 @@ function Meta(props) {
           content: {
             count,
             numberOfPages: Math.ceil(
-              count / webmiddle.setting('resultsPerPage')
+              count / parentSettings.resultsPerPage
             ),
           },
         };
@@ -66,9 +66,6 @@ have just shown). In the other end, **options** is an object containing
 info on how the service is going to be evaluated, however it isn’t
 needed in this discussion. See the technical documentation for more
 details.
-
-With `wemiddle.setting('resultsPerPage')` we are just telling the
-webmiddle to return the setting whose path is “resultsPerPage”.
 
 <br />
 The Meta of the nytimes.com site handler is very similar, the only

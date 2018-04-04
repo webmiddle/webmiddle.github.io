@@ -10,7 +10,7 @@ SearchArticles and ArticleDetails.
 Here is how the foxnews.com site handler is defined:
 
 ```javascript
-export default new WebMiddle({
+export default {
   name: 'foxnews.com',
   settings: parentConfig,
   services: {
@@ -18,7 +18,7 @@ export default new WebMiddle({
     SearchArticles,
     ArticleDetails,
   },
-});
+};
 ```
 
 The **settings** is just the object we previously saw:

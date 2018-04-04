@@ -7,8 +7,7 @@ the following object properties:
 -   **searchProps**: the project input, i.e. an object with query,
     startYear, endYear and so on.
 
--   **webmiddleSettings**: settings to apply to the main webmiddle
-    object.
+-   **contextOptions**: options to apply to the main context.
 
 -   **evaluateOptions**: custom rules for defining how services should
     be evaluated. See the technical documentation for details.
@@ -53,23 +52,19 @@ function isRetriable(err) {
     giveupErrorCodes.indexOf(err.statusCode) === -1;
 }
 
-const newsSearchWebmiddle = new WebMiddle({
-  settings: {
-    outputBasePath: path.resolve(__dirname, '../../../output'),
-    verbose: false,
-    network: {
-      retries: (err) => {
-        if (!isRetriable(err)) return 0;
-        return -1;
-      },
-    },
-    ...(searchJson.webmiddleSettings || {}),
-    ...(searchPrivateJson.webmiddleSettings || {}),
+const contextOptions = {
+  outputBasePath: path.resolve(__dirname, '../../../output'),
+  verbose: false,
+  networkRetries: (err) => {
+    if (!isRetriable(err)) return 0;
+    return -1;
   },
-});
+  ...(searchJson.contextOptions || {}),
+  ...(searchPrivateJson.contextOptions || {}),
+};
 ```
 
-The `network.retries` setting is used by both HttpRequest and
+The `networkRetries` option is used by both HttpRequest and
 Browser services. It can also be specified as a function that, given the
 error object (*err*), returns the number of retries, with a negative
 number stating “infinite retries”.

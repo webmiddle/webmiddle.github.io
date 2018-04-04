@@ -7,11 +7,9 @@ It is composed of a **webmiddle** object and of an **options** object.
 A new context can be created with the `createContext` function:
 
 ```javascript
-import WebMiddle, { createContext } from 'webmiddle';
+import { createContext } from 'webmiddle';
 
-const webmiddle = new WebMiddle();
-
-const context = createContext(webmiddle, { expectResource: true })
+const context = createContext({ expectResource: true })
 const otherContext = createContext(context, { retries: 1 }); // extends an existing context
 
 // otherContext has the same webmiddle of context but has the following options:
@@ -21,9 +19,7 @@ const otherContext = createContext(context, { retries: 1 }); // extends an exist
 Once you have a context, you can evaluate anything you want by using it:
 
 ```jsx
-const webmiddle = new WebMiddle();
-
-evaluate(createContext(webmiddle, { expectResource: true }), (
+evaluate(createContext({ expectResource: true }), (
   <FetchPageLinks
     url="https://news.ycombinator.com/"
     query="javascript"
@@ -40,7 +36,6 @@ It is passed to services as the second argument:
 
 ```jsx
 const MyService = (props, context) => {
-  // console.log(context.webmiddle)
   // console.log(context.options);
 };
 ```
@@ -55,8 +50,6 @@ const MyService = (props, context) => {
 MyService.options = {
   retries: 1,
 }
-
-MyService.webmiddle = otherWebmiddle;
 ```
 
 You can also specify them as functions:
@@ -67,10 +60,8 @@ const MyService = (props, context) => {
 };
 
 MyService.options = (props, context) => {
-  retries: context.webmiddle.setting('network.retries'),
+  retries: context.options.networkRetries,
 }
-
-MyService.webmiddle = otherWebmiddle;
 ```
 
 In case you just need to set default options, you can use the `pickDefaults` helper:
@@ -83,7 +74,7 @@ const MyService = (props) => {
 };
 
 MyService.options = (props, context) => pickDefaults({
-  retries: context.webmiddle.setting('network.retries'),
+  retries: context.options.networkRetries,
 }, context.options);
 ```
 

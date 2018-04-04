@@ -3,16 +3,16 @@
 
 ```jsx
 function Main(props) {
-  const { sites } = props;
+  const { sites: siteNames } = props;
   return (
     <Pipe>
       <Parallel name="articlesBySite">
-        {sites.map(siteName => {
-          const siteWebMiddle = siteWebMiddles[siteName];
+        {siteNames.map(siteName => {
+          const site = sites[siteName];
           return (
             <SiteMain
               {...props}
-              site={siteWebMiddle}
+              site={site}
               name={siteName}
             />
           );

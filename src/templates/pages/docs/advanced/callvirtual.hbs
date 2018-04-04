@@ -15,50 +15,7 @@ everything is returned as is: the result will be the virtual itself, and
 there will be no change to both options and webmiddle.
 
 <br />
-**1) Finding the webmiddle**
-
-**If the type is a service**, then we start by calculating the webmiddle
-to use in the recursive call. A service can specify its webmiddle via
-the static `webmiddle` property; note that this is done automatically
-when registering a service to a webmiddle.
-
-If the service has no webmiddle, then the current one is used.
-
-<hr />
-**Example:**
-
-```javascript
-const webmiddle = new WebMiddle();
-const MyService = () => { /* … */ } 
-MyService.webmiddle = webmiddle;
-```
-<hr />
-
-<br />
-**2) Temp link **
-
-We then proceed by checking if a **temporaneous correlation (link)**
-between the service webmiddle and the current webmiddle needs to be
-created.
-
-Such correlation is needed in case the service webmiddle and the current
-webmiddle aren’t already related.
-
-Two webmiddles are said **related** if they are the same or if they have
-at least one ancestor in common.
-
-If they are not related, then we create such temporaneous correlation by
-retrieving the top ancestor of the service webmiddle, by then setting
-its parent to the current webmiddle. Such linked top ancestor is called
-“**linkedWebmiddle**”.
-
-This way, the current webmiddle will become ancestor of the service
-webmiddle, so that the service will have access to any setting and
-service of the current webmiddle, if they are not overrode by any of the
-other ancestors.
-
-<br />
-**3) Options calculation**
+**1) Options calculation**
 
 The options to use are calculated by **merging** the following options:
 

@@ -1,6 +1,6 @@
 # webmiddle-website
 
-> WebMiddle website.
+> webmiddle website.
 
 ## [Assemble](http://assemble.io/)
 

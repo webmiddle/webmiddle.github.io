@@ -1,7 +1,7 @@
 ---
 title: Home
 order: 0
-heading: 'WebMiddle'
+heading: 'webmiddle'
 ---
 <div class="jumbotron">
     <h1>{{ site.title }}</h1>
@@ -16,7 +16,7 @@ heading: 'WebMiddle'
     <div class="row">
         <div class="col-lg-9 text-justify">
 {{#markdown}}
-WebMiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or **webmiddle**, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.
+webmiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or **webmiddle**, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.
 
 Each web middleware is implemented via JSX services, leading to a highly composable, extensible and declarative approach.
 {{/markdown}}
@@ -93,14 +93,14 @@ FetchPageLinks.propTypes = {
             <h3>And a webmiddle to execute it:</h3>
             {{#markdown}}
 ```jsx
-const webmiddle = new WebMiddle();
-
-evaluate(createContext(webmiddle, { expectResource: true }), (
+rootContext.extend({
+  expectResource: true
+}).evaluate(
   <FetchPageLinks
     url="https://news.ycombinator.com/"
     query="javascript"
   />,
-)).then(outputResource => {
+).then(outputResource => {
   console.log(
     JSON.stringify(outputResource.content, null, 2)
   );
