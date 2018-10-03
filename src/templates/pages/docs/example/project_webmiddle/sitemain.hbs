@@ -4,7 +4,7 @@
 ```jsx
 function SiteMain(props) {
   const { site } = props;
-  const { Meta } = site.services;
+  const { Meta } = site.components;
 
   return (
     <Pipe>
@@ -43,20 +43,20 @@ function SiteMain(props) {
 }
 ```
 
-It starts by calling the Meta service of the site handler, so to get the
+It starts by calling the Meta component of the site handler, so to get the
 number of pages.
 
-Then, for each page, it uses the **ProcessPage** service to get the list
+Then, for each page, it uses the **ProcessPage** component to get the list
 of articles of the site for that page.
 
-Here, the `limit={1}` attribute passed to the **ArrayMap** core service
+Here, the `limit={1}` attribute passed to the **ArrayMap** core component
 is used to limit the number of concurrently processed pages. A higher
 concurrency will speed up the search, but will also increase the machine
 resources usage. Moreover, these concurrent tasks will add up with any
 other concurrent tasks in other sites.
 
-**Resume** is the core service used for resuming, to use it, we just
-need to wrap the service we want to make resumable as children, and
+**Resume** is the core component used for resuming, to use it, we just
+need to wrap the component we want to make resumable as children, and
 specify the save path via the savePath attribute.
 
 The last step in our Pipe chain just extracts the content of the

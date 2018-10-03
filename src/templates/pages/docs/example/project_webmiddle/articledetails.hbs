@@ -4,7 +4,7 @@
 Must return an article object.
 
 It is a simple wrapper, since it just needs to call our existing
-ArticleDetails service and do some minimal output conversions.
+ArticleDetails component and do some minimal output conversions.
 
 Let’s only see the one from foxnews.com, as the other one from
 nytimes.com is almost identical.
@@ -55,7 +55,7 @@ Thus, we are just getting the actual article object and wrapping it into
 a new resource.
 
 Moreover, note the use of the **fixArticle** function. The problem is
-that our Parent service returns the date in a different format from what
+that our Parent component returns the date in a different format from what
 the project needs, thus we need to convert it accordingly.
 
 The **getFormattedDate** is a project helper that does just that: given

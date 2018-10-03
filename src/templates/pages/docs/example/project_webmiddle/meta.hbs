@@ -9,11 +9,11 @@ properties:
 -   **numberOfPages**: the number of pages of results. This obviously
     depends on both the count and the number of results per page.
 
-This service is essential for the business logic, as it states how many
+This component is essential for the business logic, as it states how many
 pages need to be processed.
 
 Its implementation is rather straightforward, since the SearchArticle
-services we implemented in the previous section already include the
+components we implemented in the previous section already include the
 count element. This was the code from foxnews.com:
 
 ```jsx
@@ -25,7 +25,7 @@ count element. This was the code from foxnews.com:
 </count>
 ```
 
-The service wrapper is thus the following:
+The component wrapper is thus the following:
 
 ```jsx
 function Meta(props) {
@@ -55,15 +55,15 @@ function Meta(props) {
 }
 ```
 
-Here, **Parent** is the wrapped service, e.g. the SearchArticle of the
+Here, **Parent** is the wrapped component, e.g. the SearchArticle of the
 foxnews.com site. We are calling it with the project input on the first
 page; we then extract the count from the resource and use it together
 with the number of results per page to calculate the **numberOfPages**.
 
-The **webmiddle** object is passed to every service and refers to the
-webmiddle to which the service belongs (in this case the site handler we
+The **webmiddle** object is passed to every component and refers to the
+webmiddle to which the component belongs (in this case the site handler we
 have just shown). In the other end, **options** is an object containing
-info on how the service is going to be evaluated, however it isn’t
+info on how the component is going to be evaluated, however it isn’t
 needed in this discussion. See the technical documentation for more
 details.
 

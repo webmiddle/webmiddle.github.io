@@ -18,12 +18,12 @@ heading: 'webmiddle'
 {{#markdown}}
 webmiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or **webmiddle**, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.
 
-Each web middleware is implemented via JSX services, leading to a highly composable, extensible and declarative approach.
+Each web middleware is implemented via JSX components, leading to a highly composable, extensible and declarative approach.
 {{/markdown}}
         </div>
         <div class="col-lg-3">
             <ul class="tick-list">
-                <li>JSX services</li>
+                <li>JSX components</li>
                 <li>Multiple layers</li>
                 <li>Concurrency</li>
                 <li>HTTP</li>
@@ -48,7 +48,7 @@ yo webmiddle
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <h3>Given a JSX service:</h3>
+            <h3>Given a JSX component:</h3>
             {{#markdown}}
 ```jsx
 const FetchPageLinks = ({ url, query, waitFor }) =>
@@ -138,7 +138,7 @@ rootContext.extend({
       <div class="col-lg-12">
         <h3>Going further</h3>
         <p>
-          This is just the tip of the iceberg, you can create complex wrappers and applications by registering multiple services to a webmiddle instance, specify settings and evaluate options, composing webmiddles and much more!
+          This is just the tip of the iceberg, you can create complex wrappers and applications by registering multiple components to a webmiddle instance, specify settings and evaluate options, composing webmiddles and much more!
         </p>
         <p>Read the <a href="/docs">documentation</a> for a detailed description.</p>
       </div>

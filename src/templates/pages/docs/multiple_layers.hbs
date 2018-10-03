@@ -18,8 +18,8 @@ suggests, to create several layers of middlewares one on top of another.
     of the site, these APIs allow developers to have access to the site
     content in a highly semantic format.
 
-2)  The **site webmiddle**, i.e. a group of webmiddle services for each
-    of the site page / area. Internally the services can use HTML
+2)  The **site webmiddle**, i.e. a group of webmiddle components for each
+    of the site page / area. Internally the components can use HTML
     scraping, APIs or a mix of both. Its job is just to take the
     **minimal** steps needed to make the site content semantic.
 
@@ -27,7 +27,7 @@ suggests, to create several layers of middlewares one on top of another.
     perform the actual application task, e.g. extract a list of articles
     given a search query.
 
-Is important to note that the services of the site webmiddle will return
+Is important to note that the components of the site webmiddle will return
 resources in some format, which will be different from site to site, as
 they will be often developed by different users and since they serve a
 more general and broader scope.
@@ -60,5 +60,5 @@ webmiddle is already available.
 
 Anyway, layers (2) and (3) can also be merged into a single layer, so
 that the site handler directly does the HTML and API calls instead that
-wrapping existing services for the site.
+wrapping existing components for the site.
 {{/markdown}}

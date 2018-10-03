@@ -1,7 +1,7 @@
 {{#markdown}}
 ### The New York Times
 
-We are going to only see the SearchArticles service, since
+We are going to only see the SearchArticles component, since
 ArticleDetails is almost identical to foxnews, even the article text
 extraction is almost the same.
 
@@ -40,7 +40,7 @@ function SearchArticles({ query, apiKey, startYear, endYear, pageNumber }) {
 The site provides an [API](http://developer.nytimes.com/article_search_v2.json) that can be conveniently used to search
 articles and get results in JSON format.
 
-The JSONSelectToJson is a service that can be used to convert JSON to
+The JSONSelectToJson is a component that can be used to convert JSON to
 JSON, however here we are only interested in normalizing the already
 fetched JSON into our commonly used structure (i.e. with the “root”
 object on top). For this reason, we use the “fullConversion” attribute.

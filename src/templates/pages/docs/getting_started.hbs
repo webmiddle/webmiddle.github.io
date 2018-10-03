@@ -16,7 +16,7 @@ Then generate your new project:
 yo webmiddle
 ```
 
-The created application already includes as dependencies all the core webmiddle services.
+The created application already includes as dependencies all the core webmiddle components.
 
 ### Build
 
@@ -59,7 +59,7 @@ node dist
 
 This will run the index.js file.
 
-The generated application executes a [simple service](https://github.com/webmiddle/generator-webmiddle/blob/master/generators/app/templates/src/FetchPageLinks.js) by reading props from command line arguments,
+The generated application executes a [simple component](https://github.com/webmiddle/generator-webmiddle/blob/master/generators/app/templates/src/FetchPageLinks.js) by reading props from command line arguments,
 example:
 
 ```bash
@@ -69,7 +69,7 @@ node dist "https://news.ycombinator.com/" "javascript"
 This will spawn an headless browser on the given url (first argument) and will extract as JSON all the links whose text matches the provided query (second argument).
 You can also specify an optional query selector (third argument) to be waited for, in case the page is dynamically loaded via JavaScript.
 
-Now you can start messing around by changing `src/index.js` and by adding new services. Congratulations!
+Now you can start messing around by changing `src/index.js` and by adding new components. Congratulations!
 
 ### Learn more
 

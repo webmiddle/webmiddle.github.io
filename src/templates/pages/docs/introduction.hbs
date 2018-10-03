@@ -4,7 +4,7 @@ Introduction
 
 webmiddle is a [JSX](https://facebook.github.io/react/docs/introducing-jsx.html)-driven [Node.js](https://nodejs.org/en/) framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or **webmiddle**, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.
 
-Each web middleware is implemented via JSX services, leading to a highly composable, extensible and declarative approach.
+Each web middleware is implemented via JSX components, leading to a highly composable, extensible and declarative approach.
 
 The idea is to provide an easy to use and structured way for solving
 this class of problems, without compromising on the expressiveness and
@@ -26,7 +26,7 @@ trees, from the http requests, to the conversion steps, to the business
 logic.
 
 A JSX tree is a tree whose nodes have attributes and a type, where the
-type can reference a function, here called **service**.
+type can reference a function, here called **component**.
 
 This allow the user to define in a **tree-like fashion** the logic of
 the application, in a declarative and modular approach.
@@ -45,7 +45,7 @@ format, a “**virtual tree**”, or simply “**virtual**”, i.e. a node with
 a type, attributes and children. This virtual tree is then evaluated
 accordingly.
 
-Moreover, the framework provides a set of **core services** for the most
+Moreover, the framework provides a set of **core components** for the most
 common operations: http requests, data conversion, flow control, [PhantomJS](http://phantomjs.org/) requests,
 concurrency and error handling, to name a few.
 {{/markdown}}

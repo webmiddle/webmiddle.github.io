@@ -5,28 +5,28 @@
 
 The framework provides a webmiddle class that can be used to create webmiddle objects.
 
-Multiple services targeting websites, web APIs or collection of web resources can be grouped together into so called webmiddle objects, to be reusable in different applications.<br />
-Each webmiddle object exposes settings accessible by all of its services and can be easily turned into a REST API for remote access.
+Multiple components targeting websites, web APIs or collection of web resources can be grouped together into so called webmiddle objects, to be reusable in different applications.<br />
+Each webmiddle object exposes settings accessible by all of its components and can be easily turned into a REST API for remote access.
 
-A webmiddle can be seen as a container of related services plus settings
+A webmiddle can be seen as a container of related components plus settings
 to support them, for example you may have a webmiddle for a site, a
 webmiddle for a project and so on.
 
 Moreover, by also setting the parent, you can create a **tree** of
 webmiddle instances that can be used in more complex scenarios.
 
-The services registered to a webmiddle are wrapped in a higher order service that is
-associated to that webmiddle. This way the service will be able to use the webmiddle,
-with its settings and services, during evaluation.
+The components registered to a webmiddle are wrapped in a higher order component that is
+associated to that webmiddle. This way the component will be able to use the webmiddle,
+with its settings and components, during evaluation.
 
 A webmiddle **application** will always have at least one webmiddle
-object, i.e. a root object, which might even have no services
+object, i.e. a root object, which might even have no components
 associated to it. The reasoning is that the system provides a way of
-evaluating services that aren’t associated to any webmiddle; in such a
-case, the root webmiddle takes ownership of the service for all the time
+evaluating components that aren’t associated to any webmiddle; in such a
+case, the root webmiddle takes ownership of the component for all the time
 required to evaluate it.
 
-The system is also able of creating webmiddle trees dynamically, meaning that when evaluating a service associated to another webmiddle, a parent correlation between the service webmiddle and the caller webmiddle will be established, this way the service will have access to any setting, option and service of the caller webmiddle as default.
+The system is also able of creating webmiddle trees dynamically, meaning that when evaluating a component associated to another webmiddle, a parent correlation between the component webmiddle and the caller webmiddle will be established, this way the component will have access to any setting, option and component of the caller webmiddle as default.
 
 See the [advanced section](/docs/advanced) for more info.
 
@@ -50,8 +50,8 @@ See the [advanced section](/docs/advanced) for more info.
       <td>A webmiddle instance that should be used as the webmiddle parent. It is optional.</td>
     </tr>
     <tr>
-      <td>services</td>
-      <td>An object with the format `<path : String, service>` containing the services that should be associated to the webmiddle, it shouldn’t be accessed directly (use the **service function** instead).</td>
+      <td>components</td>
+      <td>An object with the format `<path : String, component>` containing the components that should be associated to the webmiddle, it shouldn’t be accessed directly (use the **component function** instead).</td>
     </tr>
     <tr>
       <td>settings</td>
@@ -67,15 +67,15 @@ See the [advanced section](/docs/advanced) for more info.
 <br />
 **Methods**:
 
--   **service(path : String)**<br />
-    Returns the service with the given path. If there is no such service
+-   **component(path : String)**<br />
+    Returns the component with the given path. If there is no such component
     in the webmiddle, then the function is called recursively on the
     parent, if any.
 
--   **registerService(path, Service)<br />
-    **Allows to add a service to a webmiddle, this is mainly used
+-   **registerComponent(path, Component)<br />
+    **Allows to add a component to a webmiddle, this is mainly used
     internally at construction time, but can also be used to add a
-    service at a later time.
+    component at a later time.
 
 -   **log(…args)<br />
     **Utility logging function, the args are printed to the console. The

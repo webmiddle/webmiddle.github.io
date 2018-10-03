@@ -9,7 +9,7 @@ the following object properties:
 
 -   **contextOptions**: options to apply to the main context.
 
--   **evaluateOptions**: custom rules for defining how services should
+-   **evaluateOptions**: custom rules for defining how components should
     be evaluated. See the technical documentation for details.
 
 In addition to that, the project also takes an optional
@@ -65,7 +65,7 @@ const contextOptions = {
 ```
 
 The `networkRetries` option is used by both HttpRequest and
-Browser services. It can also be specified as a function that, given the
+Browser components. It can also be specified as a function that, given the
 error object (*err*), returns the number of retries, with a negative
 number stating “infinite retries”.
 
@@ -82,8 +82,8 @@ Note that both resuming, retrying and error handling are made possible
 by the webmiddle core, which has out-of-the-box support for such
 features. See the technical documentation for details.
 
-Let’s now dive deep into the services used by the project business
+Let’s now dive deep into the components used by the project business
 logic.
 
-The search is started by running the Main service.
+The search is started by running the Main component.
 {{/markdown}}

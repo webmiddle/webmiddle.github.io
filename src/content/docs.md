@@ -10,7 +10,7 @@ open-source community, so to reduce the number of prototypal and
 short-term solutions that are still widely used to tackle this sort of
 problems.
 
-The main characteristics of the framework are the use of JSX services as
+The main characteristics of the framework are the use of JSX components as
 building blocks, i.e. resource-processing functions that can be defined
 in an XML-like fashion, and the use of a multi-layer approach, where
 multiple web middlewares can be composed together, so to maximize reuse
@@ -21,9 +21,9 @@ framework from other existing solutions, with the JSX approach being the
 most prominent one.
 
 The technical documentation gave a low-level description of the
-framework, by showing how JSX services are evaluated and how the
+framework, by showing how JSX components are evaluated and how the
 multi-layer approach is made possible; moreover, it also contained the
-description regarding the behavior and interface of the core services,
+description regarding the behavior and interface of the core components,
 which can be used for tasks such as flow control, data conversion and
 networking.
 

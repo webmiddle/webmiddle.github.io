@@ -50,27 +50,27 @@ function ArticleDetails({ url }) {
 }
 ```
 
-Let’s dive deep into the ArticleDetails service and let’s understand
+Let’s dive deep into the ArticleDetails component and let’s understand
 what it does and how.
 
-We define a service that does an http request to fetch an html resource,
+We define a component that does an http request to fetch an html resource,
 that we call “rawHtml”, this is done by means of the **HttpRequest**
-service.
+component.
 
 Then, we convert that “rawHtml” resource into an “articleDetails” JSON
-resource with a given schema by means of the **HtmlToJson** service.
+resource with a given schema by means of the **HtmlToJson** component.
 
-Whenever a child of the **Pipe** service is defined as a function
+Whenever a child of the **Pipe** component is defined as a function
 instead that directly as JSX (as in the image), that function will be
-called by the Pipe service, by passing the “resources” object containing
+called by the Pipe component, by passing the “resources” object containing
 all the resources that have been created until that point.
 
 This is needed for retrieving those resources and using them in
-subsequent services.
+subsequent components.
 
-The Pipe service output is the resource returned by the last child, in
+The Pipe component output is the resource returned by the last child, in
 this case it will be the “articleDetails” resource returned by the
-HtmlToJson service.
+HtmlToJson component.
 
 <br />
 The schema of the “articleDetails” resource is defined via the
@@ -110,7 +110,7 @@ HtmlToJson children:
 }
 ```
 
-In our example the HtmlToJson service will generate an “articleDetails”
+In our example the HtmlToJson component will generate an “articleDetails”
 resource with contentType “application/json”.
 
 The actual resource content will be something like
@@ -138,7 +138,7 @@ executed:
 ```
 
 We are saying that we want an “article” property as the root of the JSON
-object; the el=”article” attribute is telling the service to query the
+object; the el=”article” attribute is telling the component to query the
 HTML document with an “article” selector, so to get a list of HTML
 elements (in this case all the elements with tagName equal to
 “article”).
@@ -166,16 +166,16 @@ In case multiple HTML elements are associated with the parent JSON
 element (e.g. there are multiple elements with tagName “article” in our
 example) then the first one is used.
 
-Thus, writing el=”h2 &gt; a” is like saying to the service: associate
+Thus, writing el=”h2 &gt; a” is like saying to the component: associate
 this JSON element with all the HTML elements matching the “h2 &gt; a”
 selector, relative to the parent HTML element.
 
-The condition attribute is telling the service: only keep those HTML
+The condition attribute is telling the component: only keep those HTML
 elements that pass this condition. The condition can be specified as a
 function that takes each element and returns true if the element should
 be included.
 
-Note: the service is using **cheerio** for parsing the HTML document, it
+Note: the component is using **cheerio** for parsing the HTML document, it
 is a NodeJS subset of jQuery, thus the selectors and the “el” objects
 themselves follow the cheerio/jQuery syntax.
 
@@ -194,7 +194,7 @@ specifying what the value of the element should be.
 
 Most of the times the data to extract from an HTML element will be
 similar: its text content, the value of an attribute, etc. For this
-reason, the service provides some helper functions that can make the
+reason, the component provides some helper functions that can make the
 extraction more declarative.
 
 ```jsx
@@ -350,26 +350,26 @@ function SearchArticles({ query, startYear, endYear, pageNumber }) {
 }
 ```
 
-Let’s see the differences with respect to the previous service.
+Let’s see the differences with respect to the previous component.
 
-Instead of the HttpRequest service, here we are using the **Browser**
-service. It looks very similar in terms of interface, but it actually
+Instead of the HttpRequest component, here we are using the **Browser**
+component. It looks very similar in terms of interface, but it actually
 uses a headless browser, such as PhtantomJS, to fetch the page and to
 execute any JavaScript that may run on it.
 
-This service is very useful in case of single page webapps, or with any
+This component is very useful in case of single page webapps, or with any
 other kind of site that uses JavaScript to load and create parts of the
 page dynamically.
 
 This is the case of the search results of foxnews, which are loaded via
 JavaScript.
 
-The “waitFor” attribute tells the service to wait until an element with
+The “waitFor” attribute tells the component to wait until an element with
 the given selector is found on the page, it can be used to wait for the
 JavaScript content to be fully loaded before returning the current
 content of the page.
 
-Differently from the previous service, where we only had an “url”
+Differently from the previous component, where we only had an “url”
 parameter, here we have other parameters such as “query” and
 “pageNumber”, the url that is built is based on them.
 
@@ -386,7 +386,7 @@ Still, we can just convert the pageNumber to the “start” value, by using
 a simple function based on the number of results per page.
 
 This is what the “toStart” function is for, it is a function created by
-the service developer, it is not provided by the framework. It shows yet
+the component developer, it is not provided by the framework. It shows yet
 another time how you can embed and reference functions and any other
 kind of JavaScript expressions into JSX:
 
@@ -397,7 +397,7 @@ function toStart(pageNumber) {
 ```
 
 Here, the settings variable is just a simple configuration object that
-can be used by any site service:
+can be used by any site component:
 
 ```jsx
 export default {
@@ -426,7 +426,7 @@ collection into a JSX element. This is what we do with
 ```
 
 Namely, instead of specifying the selector as a string in the “el”
-attribute, we directly pass the element we have in scope. The service
+attribute, we directly pass the element we have in scope. The component
 will just use it. This is the power of JSX!
 
 The elMap helper will return an array of JSX elements, and as stated

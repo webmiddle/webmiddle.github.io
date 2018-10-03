@@ -1,7 +1,7 @@
 {{#markdown}}
 ### context
 
-A context represents the current evaluation state and is used to drive the further evaluation of services.  
+A context represents the current evaluation state and is used to drive the further evaluation of components.  
 It is composed of a **webmiddle** object and of an **options** object.
 
 A new context can be created with the `createContext` function:
@@ -32,22 +32,22 @@ evaluate(createContext({ expectResource: true }), (
 ```
 
 
-It is passed to services as the second argument:
+It is passed to components as the second argument:
 
 ```jsx
-const MyService = (props, context) => {
+const MyComponent = (props, context) => {
   // console.log(context.options);
 };
 ```
 
-Services can override the context via static properties:
+Components can override the context via static properties:
 
 ```jsx
-const MyService = (props, context) => {
+const MyComponent = (props, context) => {
   console.log(context.options.retries); // 1
 };
 
-MyService.options = {
+MyComponent.options = {
   retries: 1,
 }
 ```
@@ -55,11 +55,11 @@ MyService.options = {
 You can also specify them as functions:
 
 ```jsx
-const MyService = (props, context) => {
+const MyComponent = (props, context) => {
   console.log(context.options.retries); // 1
 };
 
-MyService.options = (props, context) => {
+MyComponent.options = (props, context) => {
   retries: context.options.networkRetries,
 }
 ```
@@ -69,26 +69,26 @@ In case you just need to set default options, you can use the `pickDefaults` hel
 ```jsx
 import { pickDefaults } from 'webmiddle';
 
-const MyService = (props) => {
+const MyComponent = (props) => {
   // ...
 };
 
-MyService.options = (props, context) => pickDefaults({
+MyComponent.options = (props, context) => pickDefaults({
   retries: context.options.networkRetries,
 }, context.options);
 ```
 
-There is also an useful `WithOptions` service that can be used to extend a context directly with JSX:
+There is also an useful `WithOptions` component that can be used to extend a context directly with JSX:
 
 ```jsx
 
-const MyService = () => (
+const MyComponent = () => (
   <WithOptions myCustomOption="fun" anotherOption="forever">
-    <OtherService />
+    <OtherComponent />
   </WithOptions>
 );
 ```
 
-`<OtherService />` will be evaluated with a new context obtained by extending the current context options with the `{ myCustomOption: 'fun', anotherOption: 'forever' }` object.
+`<OtherComponent />` will be evaluated with a new context obtained by extending the current context options with the `{ myCustomOption: 'fun', anotherOption: 'forever' }` object.
 
 {{/markdown}}
