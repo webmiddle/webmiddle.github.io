@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Node.js JSX framework for modular web scraping and data integration">
-    <title>Home | WebMiddle</title>
+    <title>Home | webmiddle</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">WebMiddle</a>
+      <a class="navbar-brand" href="index.html">webmiddle</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -59,7 +59,7 @@
 
       
 <div class="jumbotron">
-    <h1>WebMiddle</h1>
+    <h1>webmiddle</h1>
     <p>Node.js JSX framework for modular web scraping and data integration</p>
     <p>
       <a class="btn btn-primary btn-lg" href="/docs/getting_started.html">Getting started &raquo;</a>
@@ -70,13 +70,13 @@
 <div class="container home">
     <div class="row">
         <div class="col-lg-9 text-justify">
-<p>WebMiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or <strong>webmiddle</strong>, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.</p>
-<p>Each web middleware is implemented via JSX services, leading to a highly composable, extensible and declarative approach.</p>
+<p>webmiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or <strong>webmiddle</strong>, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware.</p>
+<p>Each web middleware is implemented via JSX components, leading to a highly composable, extensible and declarative approach.</p>
 
         </div>
         <div class="col-lg-3">
             <ul class="tick-list">
-                <li>JSX services</li>
+                <li>JSX components</li>
                 <li>Multiple layers</li>
                 <li>Concurrency</li>
                 <li>HTTP</li>
@@ -98,26 +98,26 @@ yo webmiddle</code></pre>
     </div>
     <div class="row">
         <div class="col-lg-6">
-            <h3>Given a JSX service:</h3>
-            <pre><code class="language-jsx"><span class="token keyword">const</span> FetchPageLinks <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> url<span class="token punctuation">,</span> query<span class="token punctuation">,</span> waitFor <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
+            <h3>Given a JSX component:</h3>
+            <pre><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">FetchPageLinks</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> url<span class="token punctuation">,</span> query<span class="token punctuation">,</span> waitFor <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Pipe</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Browser</span>
       <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rawHtml<span class="token punctuation">"</span></span>
       <span class="token attr-name">contentType</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/html<span class="token punctuation">"</span></span>
-      <span class="token attr-name">url</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>url<span class="token punctuation">}</span></span>
-      <span class="token attr-name">waitFor</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>waitFor<span class="token punctuation">}</span></span>
+      <span class="token attr-name">url</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>url<span class="token punctuation">}</span></span>
+      <span class="token attr-name">waitFor</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>waitFor<span class="token punctuation">}</span></span>
     <span class="token punctuation">/></span></span>
 
-    <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span> rawHtml <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>HtmlToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>rawHtml<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+    <span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">{</span> rawHtml <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>HtmlToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>rawHtml<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>anchors</span>
           <span class="token attr-name">el</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a<span class="token punctuation">"</span></span>
-          <span class="token attr-name">condition</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>el <span class="token operator">=</span><span class="token operator">></span>
+          <span class="token attr-name">condition</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>el <span class="token operator">=></span>
             el<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
           <span class="token punctuation">}</span></span>
         <span class="token punctuation">></span></span>
-          <span class="token punctuation">{</span><span class="token function">elMap</span><span class="token punctuation">(</span>el <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>anchor</span> <span class="token attr-name">el</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span>el<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
+          <span class="token punctuation">{</span><span class="token function">elMap</span><span class="token punctuation">(</span>el <span class="token operator">=></span> <span class="token punctuation">(</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>anchor</span> <span class="token attr-name">el</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>el<span class="token punctuation">}</span></span><span class="token punctuation">></span></span>
               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token function">elAttr</span><span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
               <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span><span class="token punctuation">></span></span><span class="token punctuation">{</span><span class="token function">elText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>anchor</span><span class="token punctuation">></span></span>
@@ -138,16 +138,16 @@ FetchPageLinks<span class="token punctuation">.</span>propTypes <span class="tok
 
         <div class="col-lg-6">
             <h3>And a webmiddle to execute it:</h3>
-            <pre><code class="language-jsx"><span class="token keyword">const</span> webmiddle <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebMiddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token function">evaluate</span><span class="token punctuation">(</span><span class="token function">createContext</span><span class="token punctuation">(</span>webmiddle<span class="token punctuation">,</span> <span class="token punctuation">{</span> expectResource<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>
+            <pre><code class="language-jsx">rootContext<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  expectResource<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">evaluate</span><span class="token punctuation">(</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>FetchPageLinks</span>
     <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://news.ycombinator.com/<span class="token punctuation">"</span></span>
     <span class="token attr-name">query</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span>
   <span class="token punctuation">/></span></span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>outputResource <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>outputResource <span class="token operator">=></span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>
-    JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>outputResource<span class="token punctuation">.</span>content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>outputResource<span class="token punctuation">.</span>content<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
@@ -179,7 +179,7 @@ FetchPageLinks<span class="token punctuation">.</span>propTypes <span class="tok
       <div class="col-lg-12">
         <h3>Going further</h3>
         <p>
-          This is just the tip of the iceberg, you can create complex wrappers and applications by registering multiple services to a webmiddle instance, specify settings and evaluate options, composing webmiddles and much more!
+          This is just the tip of the iceberg, you can create complex wrappers and applications by registering multiple components to a webmiddle instance, specify settings and evaluate options, composing webmiddles and much more!
         </p>
         <p>Read the <a href="/docs">documentation</a> for a detailed description.</p>
       </div>
