@@ -1,0 +1,47 @@
+{
+  "docs": {
+    "Introduction": [
+      "introduction/getting-started",
+      "introduction/main-concepts"
+    ],
+    "webmiddle": [
+      "webmiddle/evaluating",
+      "webmiddle/resources",
+      "webmiddle/errorboundary",
+      "webmiddle/withoptions"
+    ],
+    "Control Flow": [
+      "control-flow/pipe",
+      "control-flow/parallel",
+      "control-flow/arraymap"
+    ],
+    "Fetching": [
+      "fetching/httprequest",
+      "fetching/browser",
+      "fetching/managercookie"
+    ],
+    "Transforming": [
+      "transforming/cheeriotojson",
+      "transforming/jsonselecttojson"
+    ],
+    "Storing": [
+      "storing/resume"
+    ],
+    "Remote execution": [
+      "remote-execution/server",
+      "remote-execution/client"
+    ],
+    "Starter App": ["doc2"],
+    "Devtools": ["doc3"]
+  },
+  "docs-starter-app": {
+    "Starter App": [
+      "doc4"
+    ]
+  },
+  "docs-devtools": {
+    "Devtools": [
+      "doc5"
+    ]
+  }
+}

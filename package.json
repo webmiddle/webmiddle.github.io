@@ -16,7 +16,8 @@
     "url": "https://github.com/webmiddle/webmiddle.github.io/issues"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=8",
+    "yarn": ">=1.5"
   },
   "scripts": {
   },
