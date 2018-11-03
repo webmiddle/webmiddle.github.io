@@ -19,7 +19,7 @@ const Sum = (props) => props.a + props.b;
 const Sum = ({ a, b }) => a + b;
 ```
 
-The main aspect is that components logic is defined with [JSX](http://facebook.github.io/jsx/).
+The main aspect is that components logic can be defined with [JSX](http://facebook.github.io/jsx/).
 
 ```jsx
 const SumItself = ({ number }) =>
@@ -59,7 +59,9 @@ const OtherComponent = ({ foo, children }) => {
 };
 ```
 
-Note that on compile time, JSX such as
+## Virtual
+
+Note that on build, JSX such as
 
 ```jsx
   <OtherComponent foo="bar">
@@ -110,7 +112,7 @@ const otherContext = context.extend({
 });
 ```
 
-Given a context, it can be used for evaluating **virtuals**:
+Given a context, it can be used for evaluating **virtuals** and other values:
 
 ```javascript
 const result = await context.evaluate(
@@ -174,3 +176,11 @@ const parsedResource = context.parseResource(stringifiedResource);
 ```
 
 Note that the stringify/parse operation changes depending on the `contentType` of the resource, for example `text/html` resources are just kept as is, while `application/json` resources are stringified by using the standard `JSON.stringify` function.
+
+## Service
+
+A service is just a Component that only accepts and returns JSON-serializable data.
+
+Services are used as the "top-level" components of a webmiddle application, their input could be from a JSON configuration file or from an HTTP request.
+
+They are mainly used for [webmiddle-server](http://localhost:3000/docs/remote-execution/server).

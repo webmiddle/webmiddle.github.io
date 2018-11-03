@@ -1,7 +1,7 @@
 ---
-id: evaluating
-title: Evaluating
-sidebar_label: Evaluating
+id: evaluate
+title: Evaluate
+sidebar_label: Evaluate
 ---
 
 The `context.evaluate(value)` function executes different actions depending on the type of `value`.
@@ -13,7 +13,7 @@ During the evaluations, new children contexts could be created.
 
 - If `value` is a **promise**, awaits it.
 
-- If `value` is a **Virtual**, then evaluates it (see **evaluateVirtual** section). If the result is a Resource, then overrides the `name` and `contentType` property with the `name` and `contentType` virtual attributes (if any).
+- If `value` is a **Virtual**, then evaluates it (see **evaluateVirtual** section).
 
 At the end, if the result isn't a Resource but the `context.options.expectResource` is true, then throws an error.
 
@@ -35,3 +35,17 @@ const props = {
 ```
 
 Finally, recursively call `evaluate` on the result.
+
+## PropTypes
+
+Uses https://www.npmjs.com/package/prop-types
+
+Eample:
+
+```
+import { PropTypes } from "webmiddle";
+
+const Component = ({ input }) => input + 'foo';
+Component.propTypes = {
+  input: PropTypes.string.isRequired,
+};

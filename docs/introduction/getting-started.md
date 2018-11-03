@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 The [webmiddle-starter-app](https://github.com/webmiddle/webmiddle-starter-app) can be used to quickly bootstrap a new `webmiddle` application.
 
-Download it
+Clone it
 
 ```sh
 git clone https://github.com/webmiddle/webmiddle-starter-app.git my-app

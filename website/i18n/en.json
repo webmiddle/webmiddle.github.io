@@ -5,10 +5,6 @@
     "previous": "Previous",
     "tagline": "Node.js JSX framework for modular web scraping and data integration",
     "docs": {
-      "control-flow/arraymap": {
-        "title": "ArrayMap",
-        "sidebar_label": "ArrayMap"
-      },
       "control-flow/parallel": {
         "title": "Parallel",
         "sidebar_label": "Parallel"
@@ -72,9 +68,9 @@
         "title": "ErrorBoundary",
         "sidebar_label": "ErrorBoundary"
       },
-      "webmiddle/evaluating": {
-        "title": "Evaluating",
-        "sidebar_label": "Evaluating"
+      "webmiddle/evaluate": {
+        "title": "Evaluate",
+        "sidebar_label": "Evaluate"
       },
       "webmiddle/resources": {
         "title": "Resources",

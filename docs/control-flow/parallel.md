@@ -4,7 +4,7 @@ title: Parallel
 sidebar_label: Parallel
 ---
 
-> Its purpose is similar to Pipe, i.e. the execution of components, but they are executed concurrently.
+> Executes multiple tasks concurrently.
 
 ## Install
 
@@ -16,58 +16,60 @@ yarn webmiddle-component-parallel
 
 Name                   | Description
 -----------------------|------------------------------------------------------
-name                   | The name of the returned resource.
 limit (optional)       | An integer for setting the maximum concurrency.
-children               | The tasks to execute.
+tasks                  | The tasks to execute, can be an array or an object.
 
 ## Usage
 
 ```jsx
-import { PropTypes, rootContext, isResource } from 'webmiddle';
+import { PropTypes, rootContext } from 'webmiddle';
 import Parallel from 'webmiddle-component-parallel';
+import isEqual from 'lodash/isEqual';
+
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const SubComponent = ({ ms, string }) => delay(ms).then(() => {
+  console.log(input);
+  return string;
+});
 
 const MyComponent = () => (
-  <Parallel name="myResources">
-    <SubComponent1
-      name="resource1"
-    />
-
-    <SubComponent2
-      name="resource2"
-      {/*...*/}
-    />
-
-    <SubComponent3
-      name="resource3"
-      {/*...*/}
-    />
-  </Parallel>
+  <Parallel tasks={
+    {
+      result1: <SubComponent delay={500} string="foo" />,
+      result2: <SubComponent delay={0} string="bar" />,
+      result3: <SubComponent delay={250} string="some" />
+    }
+  }/>
 );
 
 rootContext.evaluate(<MyComponent />)
-.then(resource => {
-  console.log(isResource(resource)); // true
-  console.log(resource.name); // "myResources" 
-  console.log(resource.contentType); // "x-webmiddle-type"
-  console.log(resource.content); // { resource1, resource2, resource3 }
+.then(result => {
+  // was logged in the console:
+  // - "bar"
+  // - "some"
+  // - "foo"
+
+  console.log(isEqual(result, {
+    result1: 'foo',
+    result2: 'bar',
+    result3: 'some',
+  })); // true
 });
 ```
 
 ## How it works
 
-If every child is fully synchronous, then its behavior is the
-same of Pipe.<br />
-In the other end, if the child returns a promise, then such promise will
-be added to a pool and the next child will be executed immediately.
+Tasks can be specified as an array of tasks or as an object that maps task names to tasks.
+The component resolves with such array/object mapped with the results of the tasks.
 
-The component resolves with a `x-webmiddle-type` resource whose content is an object
-`<resource name, resource>`, where the resource names are extracted
-directly from the resources returned by the children.
+If every child is fully synchronous, then its behavior is like that of Pipe.<br />
+In the other end, if the task returns a promise, then such promise will
+be added to a pool and the next task will be executed immediately.
 
-If any of the child fails, then the whole Parallel fails with the error
-returned by the failed child.
+If any of the task fails, then the whole component fails with the error
+returned by the failed task.
 
 This component also supports a **limit** property that can be used to
 limit the maximum number of concurrent tasks that should be running at
-any given time. If limit is 1, then the children will be executed in
+any given time. If limit is 1, then the tasks will be executed in
 order, one after another, similarly to the Pipe component.

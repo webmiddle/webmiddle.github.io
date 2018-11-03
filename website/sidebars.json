@@ -5,15 +5,14 @@
       "introduction/main-concepts"
     ],
     "webmiddle": [
-      "webmiddle/evaluating",
+      "webmiddle/evaluate",
       "webmiddle/resources",
       "webmiddle/errorboundary",
       "webmiddle/withoptions"
     ],
     "Control Flow": [
       "control-flow/pipe",
-      "control-flow/parallel",
-      "control-flow/arraymap"
+      "control-flow/parallel"
     ],
     "Fetching": [
       "fetching/httprequest",

@@ -4,7 +4,7 @@ title: Browser
 sidebar_label: Browser
 ---
 
-> Similar to the HttpRequest component, but it uses [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) to fetch html pages.
+> Similar to the HttpRequest component, but it uses [Puppeteer](https://github.com/GoogleChrome/puppeteer) to fetch html pages.
 
 ## Install
 
@@ -53,7 +53,7 @@ fetching SPAs (single page applications) or any other page with dynamic
 content created in the client-side.
 
 On the other end, the component has a bigger resource usage **footprint**,
-as it needs to spawn separate Headless Chrome processes that communicate with
+as it needs to spawn separate headless Chrome processes that communicate with
 the main Node process.
 
 The component is built on top of the [puppeteer](https://github.com/GoogleChrome/puppeteer) library.
