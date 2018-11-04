@@ -14,3 +14,25 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+.homeContainer {
+  background-color: #282C34;
+}
+
+.projectTitle {
+  color: white;
+}
+
+.homeContainer .button {
+  background-color: #f9d544;
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 10px;
+}
+.homeContainer .button:hover {
+  color: white;
+}
+
+.imageAlignTop .blockImage {
+  max-width: none;
+}

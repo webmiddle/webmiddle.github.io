@@ -2,7 +2,8 @@
   "docs": {
     "Introduction": [
       "introduction/getting-started",
-      "introduction/main-concepts"
+      "introduction/main-concepts",
+      "introduction/starter-app"
     ],
     "webmiddle": [
       "webmiddle/evaluate",
@@ -29,18 +30,6 @@
     "Remote execution": [
       "remote-execution/server",
       "remote-execution/client"
-    ],
-    "Starter App": ["doc2"],
-    "Devtools": ["doc3"]
-  },
-  "docs-starter-app": {
-    "Starter App": [
-      "doc4"
-    ]
-  },
-  "docs-devtools": {
-    "Devtools": [
-      "doc5"
     ]
   }
 }

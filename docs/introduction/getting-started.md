@@ -31,7 +31,7 @@ Test
 yarn test
 ```
 
-For development, automatically rebuild and restart server on changes:
+For development, automatically rebuild and restart `webmiddle-server` on changes:
 
 ```sh
 yarn start

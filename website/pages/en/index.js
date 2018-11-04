@@ -77,13 +77,13 @@ class HomeSplash extends React.Component {
     const language = this.props.language || '';
     return (
       <SplashContainer>
-        <Logo img_src={imgUrl('docusaurus.svg')} />
+        <Logo img_src={imgUrl('logo.svg')} />
         <div className="inner">
           <ProjectTitle />
           <PromoSection>
+            <Button href={docUrl('introduction/getting-started.html', language)}>Get started</Button>
             <Button href="#try">Try It Out</Button>
-            <Button href={docUrl('doc1.html', language)}>Example Link</Button>
-            <Button href={docUrl('doc2.html', language)}>Example Link 2</Button>
+            <Button href={siteConfig.repoUrl}>GitHub</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -104,16 +104,16 @@ const Features = () => (
   <Block layout="fourColumn">
     {[
       {
-        content: 'This is the content of my feature',
-        image: imgUrl('docusaurus.svg'),
+        content: 'The building block of any webmiddle application is the JSX component.',
+        image: imgUrl('component.png'),
         imageAlign: 'top',
-        title: 'Feature One',
+        title: 'JSX Components',
       },
       {
-        content: 'The content of my second feature',
-        image: imgUrl('docusaurus.svg'),
+        content: 'Evaluate and debug your components, inspect the call state and view the created resources.',
+        image: 'https://github.com/webmiddle/webmiddle-devtools/blob/master/screenshots/home.png?raw=true',
         imageAlign: 'top',
-        title: 'Feature Two',
+        title: 'Webmiddle Devtools',
       },
     ]}
   </Block>
@@ -123,8 +123,20 @@ const FeatureCallout = () => (
   <div
     className="productShowcaseSection paddingBottom"
     style={{textAlign: 'center'}}>
-    <h2>Feature Callout</h2>
-    <MarkdownBlock>These are features of this project</MarkdownBlock>
+    <h2>Features</h2>
+    <ul>
+      <li>JSX components</li>
+      <li>Concurrency</li>
+      <li>Puppeteer</li>
+      <li>Transformations from HTML, XML and JSON</li>
+      <li>Caching</li>
+      <li>Error handling</li>
+      <li>Devtools</li>
+      <li>Remote execution</li>
+      <li>Full extensibility</li>
+    </ul>
+{/*    <MarkdownBlock>
+    </MarkdownBlock>*/}
   </div>
 );
 
@@ -132,26 +144,25 @@ const LearnHow = () => (
   <Block background="light">
     {[
       {
-        content: 'Talk about learning how to use this',
-        image: imgUrl('docusaurus.svg'),
-        imageAlign: 'right',
-        title: 'Learn How',
+        content: 'webmiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or webmiddle, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware. Each web middleware is implemented via JSX components, leading to a highly composable, extensible and declarative approach.',
+        image: imgUrl('logo.svg'),
+        imageAlign: 'top',
+        title: 'What it is',
       },
     ]}
   </Block>
 );
 
 const TryOut = () => (
-  <Block id="try">
-    {[
-      {
-        content: 'Talk about trying this out',
-        image: imgUrl('docusaurus.svg'),
-        imageAlign: 'left',
-        title: 'Try it Out',
-      },
-    ]}
-  </Block>
+  <div
+    id="try"
+    className="productShowcaseSection paddingBottom"
+    style={{textAlign: 'center'}}>
+    <h2>Try it Out</h2>
+    <div dangerouslySetInnerHTML={{__html: `      
+      <iframe src="https://codesandbox.io/embed/qqxx7255zw?expanddevtools=1&fontsize=12&hidenavigation=1&module=%2Fsrc%2Fservices%2FFetchPageLinks.js&previewwindow=tests" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+    `}}/>
+  </div>
 );
 
 const Description = () => (
@@ -159,7 +170,7 @@ const Description = () => (
     {[
       {
         content: 'This is another description of how this project is useful',
-        image: imgUrl('docusaurus.svg'),
+        image: imgUrl('logo.svg'),
         imageAlign: 'right',
         title: 'Description',
       },
@@ -201,10 +212,10 @@ class Index extends React.Component {
         <HomeSplash language={language} />
         <div className="mainContainer">
           <Features />
-          <FeatureCallout />
+          {/*<FeatureCallout />*/}
           <LearnHow />
           <TryOut />
-          <Description />
+          {/*<Description />*/}
           <Showcase language={language} />
         </div>
       </div>

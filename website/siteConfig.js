@@ -13,8 +13,8 @@ const users = [
   // {
   //   caption: 'User1',
   //   // You will need to prepend the image path with your baseUrl
-  //   // if it is not '/', like: '/test-site/img/docusaurus.svg'.
-  //   image: '/img/docusaurus.svg',
+  //   // if it is not '/', like: '/test-site/img/logo.svg'.
+  //   image: '/img/logo.svg',
   //   infoLink: 'https://www.facebook.com',
   //   pinned: true,
   // },
@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'webmiddle', // Title for your website.
-  tagline: 'Node.js JSX framework for modular web scraping and data integration',
+  tagline: 'Node.js framework for modular web scraping and data extraction',
   url: 'https://webmiddle.github.io/', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -39,24 +39,23 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'introduction/getting-started', label: 'Getting Started'},
-    {doc: 'doc4', label: 'Starter App'},
-    {doc: 'doc5', label: 'Devtools'},
-    {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
+    { href: 'https://github.com/webmiddle/webmiddle', label: 'GitHub' },
+    //{page: 'help', label: 'Help'},
+    //{blog: true, label: 'Blog'},
   ],
 
   // If you have users set above, you add it here:
-  users,
+  //users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
+  headerIcon: 'img/logo.svg',
+  footerIcon: 'img/logo.svg',
   favicon: 'img/favicon.png',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B',
+    primaryColor: '#20232A',
+    secondaryColor: '#282c34',
   },
 
   /* Custom fonts for website */
@@ -74,7 +73,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} Manuel Dell'Elce`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -90,12 +89,12 @@ const siteConfig = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/docusaurus.png',
-  twitterImage: 'img/docusaurus.png',
+  ogImage: 'img/logo.png',
+  twitterImage: 'img/logo.png',
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
+  repoUrl: 'https://github.com/webmiddle/webmiddle',
 };
 
 module.exports = siteConfig;

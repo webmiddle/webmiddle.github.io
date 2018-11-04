@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Node.js JSX framework for modular web scraping and data integration",
+    "tagline": "Node.js framework for modular web scraping and data extraction",
     "docs": {
       "control-flow/parallel": {
         "title": "Parallel",
@@ -12,18 +12,6 @@
       "control-flow/pipe": {
         "title": "Pipe",
         "sidebar_label": "Pipe"
-      },
-      "doc2": {
-        "title": "document number 2"
-      },
-      "doc3": {
-        "title": "This is document number 3"
-      },
-      "doc4": {
-        "title": "Other Document"
-      },
-      "doc5": {
-        "title": "Fifth Document"
       },
       "fetching/browser": {
         "title": "Browser",
@@ -43,6 +31,10 @@
       },
       "introduction/main-concepts": {
         "title": "Main concepts"
+      },
+      "introduction/starter-app": {
+        "title": "Starter App",
+        "sidebar_label": "Starter App"
       },
       "remote-execution/client": {
         "title": "Client",
@@ -83,10 +75,7 @@
     },
     "links": {
       "Getting Started": "Getting Started",
-      "Starter App": "Starter App",
-      "Devtools": "Devtools",
-      "Help": "Help",
-      "Blog": "Blog"
+      "GitHub": "GitHub"
     },
     "categories": {
       "Introduction": "Introduction",
@@ -95,9 +84,7 @@
       "Fetching": "Fetching",
       "Transforming": "Transforming",
       "Storing": "Storing",
-      "Remote execution": "Remote execution",
-      "Starter App": "Starter App",
-      "Devtools": "Devtools"
+      "Remote execution": "Remote execution"
     }
   },
   "pages-strings": {
