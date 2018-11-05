@@ -16,8 +16,8 @@ yarn webmiddle-component-browser
 
 Name                   | Description
 -----------------------|------------------------------------------------------
-name                   | The name of the returned resource.
-contentType            | The contentType of the returned resource
+name (optional)        | The name of the returned resource.
+contentType (optional) | The contentType of the returned resource
 url                    | The url of the http request.
 method (optional)      | The method of the http request, e.g. 'GET', 'POST'. Defaults to 'GET'.
 body (optional)        | The body of the http request.

@@ -16,8 +16,8 @@ yarn webmiddle-component-http-request
 
 Name                   | Description
 -----------------------|------------------------------------------------------
-name                   | The name of the returned resource.
-contentType            | The contentType of the returned resource
+name (optional)        | The name of the returned resource.
+contentType (optional) | The contentType of the returned resource
 url                    | The url of the http request.
 method (optional)      | The method of the http request, e.g. 'GET', 'POST'. Defaults to 'GET'.
 body (optional)        | The body of the http request.
@@ -58,7 +58,7 @@ JSON-stringified, otherwise the default
 body will be converted to form data.
 
 The component resolves with the **response body** wrapped in a resource,
-whose name and contentType must be specified as attributes.
+whose name and contentType can be specified as props.
 
 If the contentType attribute is set to “application/json”, then the
 content will be JSON-parsed, otherwise it will be kept as is.

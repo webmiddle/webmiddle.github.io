@@ -101,7 +101,7 @@ const Block = props => (
 );
 
 const Features = () => (
-  <Block layout="fourColumn">
+  <Block layout="twoColumn">
     {[
       {
         content: 'The building block of any webmiddle application is the JSX component.',
@@ -141,14 +141,25 @@ const FeatureCallout = () => (
 );
 
 const LearnHow = () => (
-  <Block background="light">
+  <Block background="light" layout="threeColumn">
     {[
       {
-        content: 'webmiddle is a JSX-driven Node.js framework for extracting, transforming and processing web data from multiple heterogeneous sources, using a multi-layer approach, where each web middleware, or webmiddle, abstracts one or more sources of data, so to produce a structured output with the format of your choice, that can be then consumed by the higher-level middleware. Each web middleware is implemented via JSX components, leading to a highly composable, extensible and declarative approach.',
-        image: imgUrl('logo.svg'),
-        imageAlign: 'top',
-        title: 'What it is',
+        title: 'Batteries Included',
+        content: 'The framework provides a set of core components for the most common operations like http requests, data transformations, flow control, Puppeteer requests, concurrency and error handling.',
       },
+      {
+        title: 'Extensible',
+        content: `There is no actual difference between a core component and a component that you may want to develop yourself.
+
+Anyone can contribute by adding new components!`
+      },
+      {
+        title: "Remote execution",
+        content: `Quickly turn webmiddle applications into REST APIs, allowing remote access via HTTP or WebSocket.
+
+Use webmiddle-devtools for running and debugging your components and tests remotely.
+`
+      }
     ]}
   </Block>
 );
