@@ -36,3 +36,7 @@
 .imageAlignTop .blockImage {
   max-width: none;
 }
+
+article a {
+	text-decoration: underline
+}
