@@ -157,7 +157,7 @@ Anyone can contribute by adding new components!`
         title: "Remote execution",
         content: `Quickly turn webmiddle applications into REST APIs, allowing remote access via HTTP or WebSocket.
 
-Use webmiddle-devtools for running and debugging your components and tests remotely.
+Use webmiddle-devtools for running and debugging your components and test them remotely.
 `
       }
     ]}
@@ -171,7 +171,7 @@ const TryOut = () => (
     style={{textAlign: 'center'}}>
     <h2>Try it Out</h2>
     <div dangerouslySetInnerHTML={{__html: `      
-      <iframe src="https://codesandbox.io/embed/qqxx7255zw?expanddevtools=1&fontsize=12&hidenavigation=1&module=%2Fsrc%2Fservices%2FFetchPageLinks.js&previewwindow=tests" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe style="height: 80vh; border-bottom: 3px solid #F4F4F4;" width="100%" src="https://repl.it/@Maluen/webmiddle-try-it-out?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
     `}}/>
   </div>
 );
