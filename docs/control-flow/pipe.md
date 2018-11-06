@@ -59,6 +59,6 @@ The tasks to execute are specified via **children**. In case a
 function is specified, then such function is called with the last result.
 
 The component resolves with the result returned by the last child.
-.
-If any of the child fails, then the component fails with the error
+
+If any of the children fails, then the component fails with the error
 returned by the failed child.

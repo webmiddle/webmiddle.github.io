@@ -19,7 +19,7 @@ Name                   | Description
 name (optional)        | The name of the returned resource.
 contentType (optional) | The contentType of the returned resource
 url                    | The url of the http request.
-method (optional)      | The method of the http request, e.g. 'GET', 'POST'. Defaults to 'GET'.
+method (optional)      | The method of the http request, e.g. `GET`, `POST`. Defaults to `GET`.
 body (optional)        | The body of the http request.
 httpHeaders (optional) | Additional http headers to use in the http request.
 
@@ -45,27 +45,27 @@ rootContext.evaluate(<MyComponent />)
 
 ## How it works
 
-It uses the CookieManager for storing and retrieving cookies.
+It uses **CookieManager** for storing and retrieving cookies.
 
 The **request body** can be specified either directly as a string or as
 a JSON object, in the latter case it will be converted to a string by
 the component.
 
-The **body conversion** to string depends on the ‘Content-Type’ http
-header, if it is set to “application/json”, then the body will be
+The **body conversion** to string depends on the `Content-Type` http
+header, if it is set to `application/json`, then the body will be
 JSON-stringified, otherwise the default
-“application/x-www-form-urlencode” content type is assumed, thus the
+`application/x-www-form-urlencode` content type is assumed, thus the
 body will be converted to form data.
 
 The component resolves with the **response body** wrapped in a resource,
 whose name and contentType can be specified as props.
 
-If the contentType attribute is set to “application/json”, then the
+If the contentType attribute is set to `application/json`, then the
 content will be JSON-parsed, otherwise it will be kept as is.
 
 In case of **http error**, the component fails with an **HttpError
 object** containing the error status code.
 
-The component uses the ErrorBoundary component to retry in case of
+The component uses the **ErrorBoundary** component to retry in case of
 errors.
 The amount of retries can be customized with the `networkRetries` context option.
