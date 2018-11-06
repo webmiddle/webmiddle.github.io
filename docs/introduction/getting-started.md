@@ -6,7 +6,7 @@ sidebar_label: Getting Started
 
 The [webmiddle-starter-app](https://github.com/webmiddle/webmiddle-starter-app) can be used to quickly bootstrap a new `webmiddle` application.
 
-Download and extract it: https://github.com/webmiddle/webmiddle-starter-app/archive/v0.1.0.zip
+Download and extract it: https://github.com/webmiddle/webmiddle-starter-app/archive/v0.1.1.zip
 
 Install dependencies
 
