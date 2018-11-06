@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting Started · webmiddle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The [webmiddle-starter-app](https://github.com/webmiddle/webmiddle-starter-app) can be used to quickly bootstrap a new `webmiddle` application."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting Started · webmiddle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://webmiddle.github.io//index.html"/><meta property="og:description" content="The [webmiddle-starter-app](https://github.com/webmiddle/webmiddle-starter-app) can be used to quickly bootstrap a new `webmiddle` application."/><meta property="og:image" content="https://webmiddle.github.io/img/logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://webmiddle.github.io/img/logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/mono-blue.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg" alt="webmiddle"/><h2 class="headerTitleWithLogo">webmiddle</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/introduction/getting-started" target="_self">Getting Started</a></li><li class=""><a href="https://github.com/webmiddle/webmiddle" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Introduction</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/introduction/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/introduction/main-concepts">Main concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/introduction/starter-app">Starter App</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">webmiddle</h3><ul><li class="navListItem"><a class="navItem" href="/docs/webmiddle/evaluate">Evaluate</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/errorboundary">ErrorBoundary</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/withoptions">WithOptions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Control Flow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/control-flow/pipe">Pipe</a></li><li class="navListItem"><a class="navItem" href="/docs/control-flow/parallel">Parallel</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Fetching</h3><ul><li class="navListItem"><a class="navItem" href="/docs/fetching/httprequest">HttpRequest</a></li><li class="navListItem"><a class="navItem" href="/docs/fetching/browser">Browser</a></li><li class="navListItem"><a class="navItem" href="/docs/fetching/managercookie">Cookie Manager</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Transforming</h3><ul><li class="navListItem"><a class="navItem" href="/docs/transforming/cheeriotojson">CheerioToJson</a></li><li class="navListItem"><a class="navItem" href="/docs/transforming/jsonselecttojson">JSONSelectToJson</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Storing</h3><ul><li class="navListItem"><a class="navItem" href="/docs/storing/resume">Resume</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Remote execution</h3><ul><li class="navListItem"><a class="navItem" href="/docs/remote-execution/server">Server</a></li><li class="navListItem"><a class="navItem" href="/docs/remote-execution/client">Client</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Getting Started</h1></header><article><div><span><p>The <a href="https://github.com/webmiddle/webmiddle-starter-app">webmiddle-starter-app</a> can be used to quickly bootstrap a new <code>webmiddle</code> application.</p>
+<p>Download and extract it: <a href="https://github.com/webmiddle/webmiddle-starter-app/archive/v0.1.0.zip">https://github.com/webmiddle/webmiddle-starter-app/archive/v0.1.0.zip</a></p>
+<p>Install dependencies</p>
+<pre><code class="hljs css language-sh">yarn
+</code></pre>
+<p>Build</p>
+<pre><code class="hljs css language-sh">yarn build
+</code></pre>
+<p>Test</p>
+<pre><code class="hljs css language-sh">yarn <span class="hljs-built_in">test</span>
+</code></pre>
+<p>For development, automatically rebuild and restart <code>webmiddle-server</code> on changes:</p>
+<pre><code class="hljs css language-sh">yarn start
+</code></pre>
+<p>For development, <code>start</code> and launch <code>webmiddle-devtools</code>:</p>
+<pre><code class="hljs css language-sh">yarn start:devtools
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/introduction/main-concepts"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="webmiddle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/introduction/getting-started.html">Getting Started</a><a href="/docs/en/introduction/main-concepts.html">Main Concepts</a><a href="/docs/en/introduction/starter-app.html">Starter App</a></div><div><h5>Community</h5><a href="http://stackoverflow.com/questions/tagged/webmiddle" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/Maluen0" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/webmiddle/webmiddle">GitHub</a><a class="github-button" href="https://github.com/webmiddle/webmiddle" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Manuel Dell&#x27;Elce</section></footer></div></body></html>

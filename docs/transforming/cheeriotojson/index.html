@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>CheerioToJson · webmiddle</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; Component that transforms a HTML or XML resource into a JSON resource by using Cheerio."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="CheerioToJson · webmiddle"/><meta property="og:type" content="website"/><meta property="og:url" content="https://webmiddle.github.io//index.html"/><meta property="og:description" content="&gt; Component that transforms a HTML or XML resource into a JSON resource by using Cheerio."/><meta property="og:image" content="https://webmiddle.github.io/img/logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://webmiddle.github.io/img/logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/mono-blue.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/css/prism.css"/><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.svg" alt="webmiddle"/><h2 class="headerTitleWithLogo">webmiddle</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/introduction/getting-started" target="_self">Getting Started</a></li><li class=""><a href="https://github.com/webmiddle/webmiddle" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Transforming</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/introduction/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/introduction/main-concepts">Main concepts</a></li><li class="navListItem"><a class="navItem" href="/docs/introduction/starter-app">Starter App</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">webmiddle</h3><ul><li class="navListItem"><a class="navItem" href="/docs/webmiddle/evaluate">Evaluate</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/resources">Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/errorboundary">ErrorBoundary</a></li><li class="navListItem"><a class="navItem" href="/docs/webmiddle/withoptions">WithOptions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Control Flow</h3><ul><li class="navListItem"><a class="navItem" href="/docs/control-flow/pipe">Pipe</a></li><li class="navListItem"><a class="navItem" href="/docs/control-flow/parallel">Parallel</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Fetching</h3><ul><li class="navListItem"><a class="navItem" href="/docs/fetching/httprequest">HttpRequest</a></li><li class="navListItem"><a class="navItem" href="/docs/fetching/browser">Browser</a></li><li class="navListItem"><a class="navItem" href="/docs/fetching/managercookie">Cookie Manager</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Transforming</h3><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/transforming/cheeriotojson">CheerioToJson</a></li><li class="navListItem"><a class="navItem" href="/docs/transforming/jsonselecttojson">JSONSelectToJson</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Storing</h3><ul><li class="navListItem"><a class="navItem" href="/docs/storing/resume">Resume</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Remote execution</h3><ul><li class="navListItem"><a class="navItem" href="/docs/remote-execution/server">Server</a></li><li class="navListItem"><a class="navItem" href="/docs/remote-execution/client">Client</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docMainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">CheerioToJson</h1></header><article><div><span><blockquote>
+<p>Component that transforms a HTML or XML resource into a JSON resource by using Cheerio.</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="install"></a><a href="#install" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Install</h2>
+<pre><code class="hljs css language-bash">yarn webmiddle-component-cheerio-to-json
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="properties"></a><a href="#properties" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Properties</h2>
+<table>
+<thead>
+<tr><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>name (optional)</td><td>The name of the returned resource.</td></tr>
+<tr><td>from</td><td>The HTML/XML resource to convert.</td></tr>
+<tr><td>content</td><td>The schema for the conversion.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<pre><code class="hljs css language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> rootContext<span class="token punctuation">,</span> isResource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"webmiddle"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> CheerioToJson<span class="token punctuation">,</span> <span class="token punctuation">{</span> $$ <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"webmiddle-component-cheerio-to-json"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> isEqual <span class="token keyword">from</span> <span class="token string">'lodash/isEqual'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> xmlResource <span class="token operator">=</span> rootContext<span class="token punctuation">.</span><span class="token function">createResource</span><span class="token punctuation">(</span><span class="token string">"xmlResource"</span><span class="token punctuation">,</span> <span class="token string">"text/xml"</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token string">`
+  &lt;bookstore>
+    &lt;book category="COOKING">
+      &lt;title lang="en">Everyday Italian&lt;/title>
+      &lt;author>Giada De Laurentiis&lt;/author>
+      &lt;year>2005&lt;/year>
+      &lt;price>30.00&lt;/price>
+    &lt;/book>
+    &lt;book category="CHILDREN">
+      &lt;title lang="en">Harry Potter&lt;/title>
+      &lt;author>J K. Rowling&lt;/author>
+      &lt;year>2005&lt;/year>
+      &lt;price>29.99&lt;/price>
+    &lt;/book>
+  &lt;/bookstore>
+`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> output <span class="token operator">=</span> <span class="token keyword">await</span> rootContext<span class="token punctuation">.</span><span class="token function">evaluate</span><span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CheerioToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>xmlResource<span class="token punctuation">}</span></span> <span class="token attr-name">content</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
+      books<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"book"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        category<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"category"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        lang<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"lang"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        author<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token string">"author"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        year<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">postprocess</span><span class="token punctuation">(</span>
+          $$<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token string">"year"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          yearString <span class="token operator">=></span> <span class="token function">parseInt</span><span class="token punctuation">(</span>yearString<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token function">postprocess</span><span class="token punctuation">(</span>
+          $$<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token string">"price"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          priceString <span class="token operator">=></span> <span class="token function">parseFloat</span><span class="token punctuation">(</span>priceString<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isResource</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// "result"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span>contentType<span class="token punctuation">)</span> <span class="token comment">// "application/json"</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isEqual</span><span class="token punctuation">(</span>output<span class="token punctuation">.</span>content<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  books<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      category<span class="token punctuation">:</span> <span class="token string">"COOKING"</span><span class="token punctuation">,</span>
+      lang<span class="token punctuation">:</span> <span class="token string">"en"</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token string">"Everyday Italian"</span><span class="token punctuation">,</span>
+      author<span class="token punctuation">:</span> <span class="token string">"Giada De Laurentiis"</span><span class="token punctuation">,</span>
+      year<span class="token punctuation">:</span> <span class="token number">2005</span><span class="token punctuation">,</span>
+      price<span class="token punctuation">:</span> <span class="token number">30</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      category<span class="token punctuation">:</span> <span class="token string">"CHILDREN"</span><span class="token punctuation">,</span>
+      lang<span class="token punctuation">:</span> <span class="token string">"en"</span><span class="token punctuation">,</span>
+      title<span class="token punctuation">:</span> <span class="token string">"Harry Potter"</span><span class="token punctuation">,</span>
+      author<span class="token punctuation">:</span> <span class="token string">"J K. Rowling"</span><span class="token punctuation">,</span>
+      year<span class="token punctuation">:</span> <span class="token number">2005</span><span class="token punctuation">,</span>
+      price<span class="token punctuation">:</span> <span class="token number">29.99</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="how-it-works"></a><a href="#how-it-works" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How it works</h2>
+<p>Parses the HTML or XML resource specified in the <code>from</code> prop using the <a href="https://github.com/cheeriojs/cheerio">Cheerio</a> library.</p>
+<p>Creates and returns a JSON resource with the specified <code>name</code> by processing the schema specified in the <code>content</code> prop.</p>
+<p>The <code>content</code> can be any javascript value, such as a plain object, that represents the content of the JSON resource that should be created.</p>
+<p>Such javascript value is recursively processed, executing different actions depending on the type of the value.</p>
+<h3><a class="anchor" aria-hidden="true" id="evaluate"></a><a href="#evaluate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Evaluate</h3>
+<p>Initially, the value is evaluated with <code>context.evaluate</code>.</p>
+<p>Functions are executed with the <code>(sourceEl, $, options)</code> parameters.</p>
+<ul>
+<li><strong>sourceEl</strong>: the current cheerio collection, by default is the document root.</li>
+<li><strong>$</strong>: the cheerio object obtained by parsing the xml/html resource.</li>
+<li><strong>options</strong>: mostly used internally. Contains the current context as <code>options.context</code>.</li>
+</ul>
+<p>This means that the dynamic parts of the JSON resource can be specified by using functions.</p>
+<p>The <code>$</code> object is accessible, thus this component can also be used as a plain wrapper on top of the Cheerio library:</p>
+<pre><code class="hljs css language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CheerioToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>xmlResource<span class="token punctuation">}</span></span> <span class="token attr-name">content</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>
+  <span class="token punctuation">(</span>rootEl<span class="token punctuation">,</span> $<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// do whatever with $</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+</code></pre>
+<p>Since it uses <code>context.evaluate</code>, <strong>promise</strong> will be awaited and components will be executed too.</p>
+<pre><code class="hljs css language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CheerioToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>xmlResource<span class="token punctuation">}</span></span> <span class="token attr-name">content</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>
+  <span class="token punctuation">(</span>rootEl<span class="token punctuation">,</span> $<span class="token punctuation">)</span> <span class="token operator">=></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SubComponent</span> <span class="token attr-name">rootEl</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>rootEl<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span>
+<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+</code></pre>
+<p><strong>In case of exceptions</strong>, instead of failing completely, the error is logged in the console and the <code>null</code> value is returned. This choice was made since web pages change often, parts that once were there get rearrenged and removed, thus is better to use a local <code>null</code> value rather than failing the whole conversion.</p>
+<h3><a class="anchor" aria-hidden="true" id="dom-nodes"></a><a href="#dom-nodes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM nodes</h3>
+<p>When processing a DOM node:</p>
+<ul>
+<li>If it's a DOM element, then returns the cheerio <code>val()</code> or <code>text()</code> of the element.</li>
+<li>Otherwise, returns the node <code>data</code>  property.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="cheerio-collections"></a><a href="#cheerio-collections" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cheerio collections</h3>
+<p>A cheerio collection is converted into a plain array by recursively processing the items in the collection.</p>
+<p>Given how DOM nodes are converted, this means that if the collection only contains DOM elements (the common use case), then it will be converted into an array with the text of each element.</p>
+<pre><code class="hljs css language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CheerioToJson</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>result<span class="token punctuation">"</span></span> <span class="token attr-name">from</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>xmlResource<span class="token punctuation">}</span></span> <span class="token attr-name">content</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>
+  <span class="token punctuation">(</span>rootEl<span class="token punctuation">,</span> $<span class="token punctuation">)</span> <span class="token operator">=></span>
+    rootEl<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></span><span class="token punctuation">/></span></span>
+
+<span class="token comment">// => ["Everyday Italian", "Harry Potter"]</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="undefined"></a><a href="#undefined" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Undefined</h3>
+<p>The <code>undefined</code> value is converted into <code>null</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="functional-layer"></a><a href="#functional-layer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functional layer</h3>
+<p>The component provides a <code>$$</code> object, which is a container of functions that can be used to make the conversion more declarative.</p>
+<p>Each of these functions takes some parameters and returns a <code>(sourceEl, $, options)</code> function which is eventually evaluated to perform some actions on the current <code>sourceEl</code>.</p>
+<h4><a class="anchor" aria-hidden="true" id=""></a><a href="#" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>$$</h4>
+<blockquote>
+<p><code>$$(selector)</code></p>
+</blockquote>
+<p>Will return a collection of elements that match <code>selector</code> relatively to <code>sourceEl</code>.</p>
+<p>The <code>selector</code> can be either a function, a string that can be passed as <code>$(selector, sourceEl)</code> or any other value.</p>
+<p>If the result isn't a collection, then it will be wrapped into one. If the result is a plain array, then the collection is created  with the items of the array.</p>
+<pre><code class="hljs css language-jsx"><span class="token function">$$</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">)</span>
+
+<span class="token comment">// or also</span>
+
+<span class="token function">$$</span><span class="token punctuation">(</span>el <span class="token operator">=></span> el<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// will be automatically wrapped into a collection</span>
+
+<span class="token comment">// => ["Everyday Italian", "Harry Potter"]</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="within"></a><a href="#within" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>within</h4>
+<blockquote>
+<p><code>$$.within(selector, body)</code></p>
+</blockquote>
+<p>Will process <code>body</code> by changing the <code>sourceEl</code> to the one obtained with <code>$$(selector)</code>.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"book"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"category"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// or also</span>
+
+$$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token function">$$</span><span class="token punctuation">(</span><span class="token string">"book"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"category"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// => "COOKING"</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="attr"></a><a href="#attr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>attr</h4>
+<blockquote>
+<p><code>$$.attr(...args)</code></p>
+</blockquote>
+<p>Will execute <code>sourceEl.attr(...args)</code></p>
+<h4><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get</h4>
+<blockquote>
+<p><code>$$.get(...args)</code></p>
+</blockquote>
+<p>Will execute <code>sourceEl.get(...args)</code></p>
+<h4><a class="anchor" aria-hidden="true" id="getfirstselector"></a><a href="#getfirstselector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getFirst(selector?)</h4>
+<p>If selector is undefined, then behaves as <code>$$.get(0)</code>, otherwise as <code>$$.within(selector, $$.get(0))</code>.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">getFirst</span><span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// => "Everyday Italian"</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="map"></a><a href="#map" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>map</h4>
+<blockquote>
+<p><code>$$.map(body)</code></p>
+</blockquote>
+<p>Returns a new collection by processing <code>body</code> with each item in <code>sourceEl</code> as the new <code>sourceEl</code>.</p>
+<p>Note that differently from the cheerio <code>map</code> function, here each item is wrapped into a cheerio collection.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> $$<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// => [{ title: "Everyday Italian" }, { title: "Harry Potter" }]</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="filter"></a><a href="#filter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>filter</h4>
+<blockquote>
+<p><code>$$.filter(fn)</code></p>
+</blockquote>
+<p>Returns a new collection by only keeping the items in <code>sourceEl</code> that pass the <code>fn($([item]), $, options)</code> test.</p>
+<p>Note that differently from the cheerio <code>filter</code> function, here each item is wrapped into a cheerio collection.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>
+  titleEl <span class="token operator">=></span> titleEl<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token regex">/italian/i</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// => ["Everyday Italian"]</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="pipe"></a><a href="#pipe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pipe</h4>
+<blockquote>
+<p><code>$$.pipe(...tasks)</code></p>
+</blockquote>
+<p>Eexecutes the tasks in order, using the result of the previous task as the <code>sourceEl</code> of the next task.</p>
+<p>The first task is called with <code>sourceEl</code>.</p>
+<p>Note that the result of each task should be a cheerio collection, if it isn't one, then it will be wrapped into one automatically.</p>
+<p>Returns the result of the last task. If no task is specified, then returns <code>sourceEl</code>.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">within</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">,</span> $$<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>
+  $$<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>titleEl <span class="token operator">=></span> titleEl<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">search</span><span class="token punctuation">(</span><span class="token regex">/italian/i</span><span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  $$<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>titleEl <span class="token operator">=></span> titleEl<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">// => ["EVERYDAY ITALIAN"]</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="postprocess"></a><a href="#postprocess" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>postprocess</h4>
+<blockquote>
+<p><code>$$.postprocess(body, postprocessFn)</code></p>
+</blockquote>
+<p>This function can be used to execute further actions on the processed data.</p>
+<p>Will process <code>body</code> and then call <code>postprocessFn(result, $, options)</code> where <code>result</code> is the processed body.</p>
+<p>Note that the return value of <code>postprocessFn</code> is furtherly processed, thus it can contain functions and such.</p>
+<pre><code class="hljs css language-jsx">$$<span class="token punctuation">.</span><span class="token function">postprocess</span><span class="token punctuation">(</span><span class="token function">$$</span><span class="token punctuation">(</span><span class="token string">"title"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> titles <span class="token operator">=></span>
+  titles<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> title<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> key <span class="token operator">=</span> title<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/ /g</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> title<span class="token punctuation">;</span> <span class="token comment">// function will be called (the result is processed)</span>
+    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment">/* =>
+{
+  EVERYDAY_ITALIAN: "Everyday Italian",
+  HARRY_POTTER: "Harry Potter"
+}
+*/</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/fetching/managercookie"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/transforming/jsonselecttojson"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav docOnPageNav"><ul class="toc-headings"><li><a href="#install">Install</a></li><li><a href="#properties">Properties</a></li><li><a href="#usage">Usage</a></li><li><a href="#how-it-works">How it works</a><ul class="toc-headings"><li><a href="#evaluate">Evaluate</a></li><li><a href="#dom-nodes">DOM nodes</a></li><li><a href="#cheerio-collections">Cheerio collections</a></li><li><a href="#undefined">Undefined</a></li><li><a href="#functional-layer">Functional layer</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.svg" alt="webmiddle" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/introduction/getting-started.html">Getting Started</a><a href="/docs/en/introduction/main-concepts.html">Main Concepts</a><a href="/docs/en/introduction/starter-app.html">Starter App</a></div><div><h5>Community</h5><a href="http://stackoverflow.com/questions/tagged/webmiddle" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/Maluen0" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="https://github.com/webmiddle/webmiddle">GitHub</a><a class="github-button" href="https://github.com/webmiddle/webmiddle" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Manuel Dell&#x27;Elce</section></footer></div></body></html>
